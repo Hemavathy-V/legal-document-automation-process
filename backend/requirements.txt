@@ -1,0 +1,8 @@
+mysql-connector-python 
+python-docx
+fastapi
+uvicorn
+pandas
+openpyxl
+sentence-transformers
+chromadb
