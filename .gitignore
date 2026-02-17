@@ -1,2 +1,13 @@
+# Environments
 venv/
 .venv/
+.env
+
+# Output folder
+output/
+
+# Byte-compiled files
+__pycache__/
+*.pyc
+*.pyo
+
