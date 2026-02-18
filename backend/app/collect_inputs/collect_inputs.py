@@ -1,4 +1,3 @@
-import os
 import json
 from datetime import datetime
 from pathlib import Path
@@ -23,16 +22,17 @@ CONTRACT_QUESTIONS = {
         "receivingPartyName": "Enter Receiving Party Name: ",
         "receivingPartyAddress": "Enter Receiving Party Address: ",
         "purposeOfDisclosure": "Describe Purpose of Disclosure: ",
-        "#exclusions": "List any Exclusions (if none, type 'None'): ",
-        "description": "Provide a brief Description of the exclusions: ",
-        "/exclusions": "List any Exclusions (if none, type 'None'): ",
+        "exclusions": [
+            {"description": "Describe Exclusion 1: "}
+        ],
         "terminationCondition": "Describe Termination Conditions: ",
         "governingLawJrisdiction": "Enter Governing Law Jurisdiction (Country/State): ",
-        "#signatures": "List Parties Required to Sign (if none, type 'None'): ",
-        "party": "Enter Party Name: ",
-        "title": "Enter Signatory Title: ",
-        "date": "Enter Signature Date: ",
-        "/signatures": "List Parties Required to Sign (if none, type 'None'): "
+        "signatures": [
+            {"party": "Enter Party Name: ",
+            "title": "Enter Signatory Title: ",
+            "date": "Enter Signature Date: ",
+            }
+        ]
     },
 
     "MSA": {
@@ -43,25 +43,118 @@ CONTRACT_QUESTIONS = {
     },
 
     "SOW": {
-        "effectiveDate": "Enter Effective Date: ",
-        "projectName": "Enter Project Name: ",
-        "servicesDescription": "Describe the Services: ",
-        "paymentTerms": "Enter Payment Terms: "
+        "Project_Title": "Enter Project Title: ",
+        "Client_Company_Name": "Enter Client Company Name: ",
+        "Service_Provider_Name": "Enter Service Provider Name: ",
+        "Effective_Date": "Enter Effective Date: ",
+        "SOW_Reference_Number": "Enter SOW Reference Number: ",
+        "Project_Name": "Enter Project Name: ",
+        "Primary_Objective": "Describe Primary Objective: ",
+        "Secondary_Objectives": "Describe Secondary Objectives (if none, type 'None'): ",
+        "Business_Goal": "Describe Business Goal: ",
+        "In_Scope_Activities": [
+            {"activity": "Conduct requirements gathering"}
+        ],
+        "Technical_Implementation_Details": [
+            {"detail": "Describe technical implementation detail 1: "}
+        ],
+        "Documentation_and_Reporting_Details": [
+            {"doc": "Describe documentation/reporting detail 1: "}
+        ],
+        "Out_of_Scope_Items": [
+            {"item": "Describe out-of-scope item 1: "}
+        ],
+        "deliverable.name": "Enter Deliverable Name: ",
+        "deliverable.description": "Describe Deliverable Description: ",
+        "deliverable.format": "Enter Deliverable Format (e.g., PDF, DOCX, etc.): ",
+        "deliverable.due_date": "Enter Deliverable Due Date: ",
+        "milestone.name": "Enter Milestone Name: ",
+        "milestone.description": "Describe Milestone Description: ",
+        "milestone.date": "Enter Milestone Date: ",
+        "Start_Date": "Enter Project Start Date: ",
+        "End_Date": "Enter Project End Date: ",
+        "SP_Responsibilities": [
+            {"responsibility": "Describe Service Provider Responsibility 1: "}
+        ],
+        "SP_Project_Manager_Name": "Enter Service Provider Project Manager Name: ",
+        "SP_QA_Process_Description": "Describe Service Provider QA Process: ",
+        "Client_Provided_Resources": "Describe Client-Provided Resources (if none, type 'None'): ",
+        "Approval_Timeframe": "Enter Approval Timeframe (e.g., 5 business days): ",
+        "Client_POC_Name": "Enter Client POC Name: ",
+        "Assumptions": [
+            {"assumption": "Describe Assumption 1: "}
+        ],
+        "Total_Project_Cost": "Enter Total Project Cost: ",
+        "Currency": "Enter Currency (e.g., USD, EUR, etc.): ",
+        "Payment_Method": "Enter Payment Method : ",
+        "Payment_Terms": "Describe Payment Terms : ",
+        "Change_Request_Form_ID": "Enter Change Request Form ID (if applicable, else type 'None'): ",
+        "MSA_Date": "Enter MSA Date (if applicable, else type 'None'): ",
+        "Requirements_Document_Name": "Enter Requirements Document Name (if applicable, else type 'None'): ",
+        "Acceptance_Period_Days": "Enter Acceptance Period in Days (e.g., 30): ",
+        "Termination_Notice_Period": "Enter Termination Notice Period (e.g., 30 days): ",
+        "Termination_Effective_Date": "Enter Termination Effective Date (if applicable, else type 'None'): ",
+        "Delivery_Format_On_Termination": "Describe Delivery Format Upon Termination: ",
+        "Client_Signatory_Name": "Enter Client Signatory Name: ",
+        "Client_Signatory_Title": "Enter Client Signatory Title: ",
+        "Client_Signature_Date": "Enter Client Signature Date: ",
+        "SP_Signatory_Name": "Enter Service Provider Signatory Name: ", 
+        "SP_Signatory_Title": "Enter Service Provider Signatory Title: ",
+        "SP_Signature_Date": "Enter Service Provider Signature Date: "
     },
 
     "Service Agreement": {
-        "effectiveDate": "Enter Effective Date: ",
+        "providerName": "Enter Service Provider Name: ",
         "clientName": "Enter Client Name: ",
-        "serviceProviderName": "Enter Service Provider Name: ",
-        "serviceDescription": "Describe the Service: ",
-        "contractDuration": "Enter Contract Duration: "
+        "effectiveDate": "Enter Effective Date: ",
+        "terminationDate": "Enter Termination Date: ",
+        "serviceTitle": "Enter Service Title: ",
+        "serviceDescription": "Describe Service Description: ",
+        "rate": "Enter Service Rate (e.g., $100/hour): ",
+        "rateUnit": "Enter Rate Unit (e.g., hour, project, etc.): ",
+        "payementDue": "Enter Payment Due Date (e.g., within 30 days of invoice): ",
+        "payementMethod": "Enter Payment Method (e.g., bank transfer, check, etc.): ",
+        "providerResponsibilities": [
+            {"responsibility": "Describe Provider Responsibility 1: "}
+        ],
+        "clientResponsibilities": [
+            {"responsibility": "Describe Client Responsibility 1: "}
+        ],
+        "terminationNoticePeriod": "Enter Termination Notice Period (e.g., 30 days): ",
+        "disputeResolutionMethod": "Enter Dispute Resolution Method (e.g., mediation, arbitration, etc.): ",
+        "additionalClauses": [
+            {"clause": "Describe Additional Clause 1: "}
+        ],
+        "signatures": [
+            {"party": "Enter Party Name: ",
+             "fullName": "Enter Signatory Full Name: ",
+             "title": "Enter Signatory Title: ",
+             "signature": "Enter Signature Date: ",
+             "date": "Enter Signature Date: "
+            }
+        ]
     },
 
     "Termination Agreement": {
-        "effectiveDate": "Enter Effective Date: ",
-        "partyOneName": "Enter First Party Name: ",
-        "partyTwoName": "Enter Second Party Name: ",
-        "terminationReason": "Enter Reason for Termination: "
+        "PartyA_Name": "Enter Party A Name: ",
+        "PartyB_Name": "Enter Party B Name: ",
+        "PartyA_Address": "Enter Party A Address: ",
+        "PartyB_Address": "Enter Party B Address: ",
+        "PartyA_Rep_Name": "Enter Party A Representative Name: ",
+        "PartyB_Rep_Name": "Enter Party B Representative Name: ",
+        "PartyA_Rep_Title": "Enter Party A Representative Title: ",
+        "PartyB_Rep_Title": "Enter Party B Representative Title: ",
+        "Original_Agreement_Type": "Enter Original Agreement Type (e.g., MSA, SOW, etc.): ",
+        "Original_Agreement_Date": "Enter Original Agreement Date: ",
+        "Termination_Effective_Date": "Enter Termination Effective Date: ",
+        "Outstanding_Amount": "Enter Outstanding Amount (if any, else type 'None'): ",
+        "Payment_Due_Date": "Enter Payment Due Date for Outstanding Amount (if any, else type 'None'): ",
+        "Return_Period_Days": "Enter Return Period in Days for any materials or equipment (if any, else type 'None'): ",
+        "Confidentiality_Survival_Period": "Enter Confidentiality Survival Period in Months (if any, else type 'None'): ",
+        "Governing_Law_Jurisdiction": "Enter Governing Law Jurisdiction (Country/State): ",
+        "Dispute_Location": "Enter Dispute Location (City, Country): ",
+        "PartyA_Sign_Date": "Enter Party A Signature Date: ",
+        "PartyB_Sign_Date": "Enter Party B Signature Date: "
     }
 }
 
