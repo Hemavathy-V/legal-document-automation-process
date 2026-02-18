@@ -1,9 +1,24 @@
-def preprocess_clause(clause: dict) -> str:
-    formatted_text = f"""
-Term: {clause.get('term')}
-Suggested Term: {clause.get('suggested_term')}
-Comments: {clause.get('comments')}
-Tooltip: {clause.get('tooltip')}
-""".strip()
+from app.services.embedding_service import get_embedding
+from app.database.chroma_db import collection
+from app.services.ollama_service import generate_response
+from app.utils.prompt_template import build_prompt
 
-    return formatted_text
+
+def generate_legal_document(user_input: str):
+
+    # Step 1: Embed user query
+    query_embedding = get_embedding(user_input)
+
+    # Step 2: Retrieve relevant clauses
+    results = collection.query(
+        query_embeddings=[query_embedding],
+        n_results=3
+    )
+
+    retrieved_clauses = results["documents"][0]
+
+    # Step 3: Build prompt
+    prompt = build_prompt(user_input, retrieved_clauses)
+
+    # Step 4: Generate response
+    return generate_response(prompt)

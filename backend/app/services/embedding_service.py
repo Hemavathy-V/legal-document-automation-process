@@ -1,8 +1,16 @@
-from sentence_transformers import SentenceTransformer
-from typing import List
+import requests
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+OLLAMA_EMBED_URL = "http://localhost:11434/api/embeddings"
+EMBED_MODEL = "nomic-embed-text"
 
-def generate_embeddings(texts: List[str]) -> List[List[float]]:
-    embeddings = model.encode(texts, show_progress_bar=True)
-    return embeddings.tolist()
+
+def get_embedding(text: str):
+    response = requests.post(
+        OLLAMA_EMBED_URL,
+        json={
+            "model": EMBED_MODEL,
+            "prompt": text
+        }
+    )
+
+    return response.json()["embedding"]

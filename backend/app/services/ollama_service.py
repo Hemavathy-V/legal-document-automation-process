@@ -1,18 +1,18 @@
-import pandas as pd
-import uuid
+import requests
 
-def load_clauses_from_excel(file_path: str):
-    df = pd.read_excel(file_path)
+OLLAMA_URL = "http://localhost:11434/api/generate"
+MODEL_NAME = "llama3"  # change if needed
 
-    clauses = []
-    for _, row in df.iterrows():
-        clause = {
-            "id": str(uuid.uuid4()),
-            "term": row.get("Term"),
-            "suggested_term": row.get("Suggested term"),
-            "comments": row.get("Comments"),
-            "tooltip": row.get("Suggested tooltip"),
+
+def generate_response(prompt: str) -> str:
+    response = requests.post(
+        OLLAMA_URL,
+        json={
+            "model": MODEL_NAME,
+            "prompt": prompt,
+            "stream": False
         }
-        clauses.append(clause)
+    )
 
-    return clauses
+    result = response.json()
+    return result["response"]

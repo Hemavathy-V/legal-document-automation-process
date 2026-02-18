@@ -1,12 +1,10 @@
 from fastapi import FastAPI
-from app.api.clause_routes import router as clause_router
-from dotenv import load_dotenv
-import os
+from app.api.clause_routes import router
 
-load_dotenv()
+app = FastAPI()
 
-hf_token = os.getenv("HF_TOKEN")
+app.include_router(router)
 
-app = FastAPI(title="Legal Automation Backend")
-
-app.include_router(clause_router, prefix="/clauses")
+@app.get("/")
+def home():
+    return {"message": "Legal Document Automation API is running"}
