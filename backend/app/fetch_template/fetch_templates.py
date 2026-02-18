@@ -4,8 +4,8 @@ import mysql.connector
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
+# Load environment variables from repo root .env
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', '..', '..', '.env'), override=True)
 
 # Get MySQL credentials from .env
 MYSQL_HOST = os.getenv('MYSQL_HOST')
@@ -16,7 +16,8 @@ MYSQL_DB = os.getenv('MYSQL_DB')
 
 # Define output folder path
 OUTPUT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..', 'output')
-PROJECT_ROOT = os.path.join(os.path.dirname(__file__), '..', '..')
+# Project root is one level above backend/
+PROJECT_ROOT = os.path.join(os.path.dirname(__file__), '..', '..', '..')
 
 
 def fetch_templates_from_db():
