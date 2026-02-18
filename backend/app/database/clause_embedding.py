@@ -5,15 +5,7 @@ from app.database.chroma_db import collection
 print("File loaded successfully")
 
 def embed_excel(file_path: str):
-    df = pd.read_excel(file_path)
-
-    print("Columns in Excel:")
-    print(df.columns.tolist())
-
-    return
-
-def embed_excel(file_path: str):
-    df = pd.read_excel(file_path)
+    df = pd.read_excel(file_path, sheet_name="Clause library", header=2)     
     
     df.columns = df.columns.str.strip()
 
@@ -41,4 +33,4 @@ def embed_excel(file_path: str):
 
 if __name__ == "__main__":
     print("Starting embedding process...")
-    embed_excel("clause_lib.xlsx")
+    embed_excel(r"D:\legal-document-automation\legal-document-automation-process\backend\clause_lib.xlsx")
