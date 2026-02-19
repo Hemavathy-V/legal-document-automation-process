@@ -5,7 +5,7 @@ from app.database.chroma_db import collection
 print("File loaded successfully")
 
 def embed_excel(file_path: str):
-    df = pd.read_excel(file_path, sheet_name="Clause library", header=2)     
+    df = pd.read_excel(file_path)     
     
     df.columns = df.columns.str.strip()
 
@@ -22,8 +22,11 @@ def embed_excel(file_path: str):
             metadatas=[{
                 "clause_name": str(row["Clause Name"]),
                 "clause_type": str(row["Clause Type"]),
+                "agreement_type": str(row["Agreement Type"]),
                 "playbook_tier": str(row["Playbook Tier"]),
-                "jurisdiction": str(row["Jurisdiction"])
+                "jurisdiction": str(row["Jurisdiction"]),
+                "comment": str(row["Comments"]),
+                "risk_level": str(row["Risk Level"])
             }]
         )
 
