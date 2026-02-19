@@ -1,3 +1,13 @@
 mysql-connector-python 
 python-docx
 python-dotenv
+<<<<<<< Updated upstream
+=======
+fastapi
+uvicorn
+pandas
+openpyxl
+requests
+chromadb
+ollama
+>>>>>>> Stashed changes
