@@ -6,3 +6,4 @@ pandas
 openpyxl
 requests
 chromadb
+python-dotenv
