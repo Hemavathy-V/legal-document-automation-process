@@ -1,53 +1,44 @@
--- ===========================================================
--- DUMMY DATA INSERTS
--- ===========================================================
+INSERT INTO look_up (lookup_type, lookup_value) VALUES
 
-INSERT INTO organizations (name, domain)
-VALUES ('ABC Corp', 'abc.com'),
-       ('XYZ Legal', 'xyzlegal.com');
+-- Contract Types
+('contract_type', 'MSA'),
+('contract_type', 'SOW'),
+('contract_type', 'Service Agreement'),
+('contract_type', 'Termination Agreement'),
+('contract_type', 'NDA'),
 
-INSERT INTO users (organization_id, name, email, password_hash)
-VALUES 
-(1, 'Admin User', 'admin@abc.com', '123456'),
-(1, 'Legal User', 'legal@abc.com', '123456'),
-(2, 'Client User', 'client@xyzlegal.com', '123456');
+-- Jurisdictions
+('jurisdiction', 'India'),
+('jurisdiction', 'Global'),
+('jurisdiction', 'United States'),
+('jurisdiction', 'United Kingdom'),
+('jurisdiction', 'United Kingdom-Walves'),
+('jurisdiction', 'United Kingdom-England'),
 
-INSERT INTO roles (name, description)
-VALUES 
-('ADMIN','Full access'),
-('LEGAL','Legal team'),
-('CLIENT','Client access'),
-('REVIEWER','Review access');
+-- Contract Status
+('status', 'Review'),
+('status', 'Under-Review'),
+('status', 'Rejected'),
+('status', 'Draft'),
 
-INSERT INTO user_roles (user_id, role_id)
-VALUES 
-(1,1),
-(2,2),
-(3,3);
+-- User Roles
+('user_role', 'Lawyer'),
+('user_role', 'Admin'),
+('user_role', 'Client'),
+('user_role', 'Assistant Lawyer');
 
-INSERT INTO permissions (name)
-VALUES 
-('CREATE_CONTRACT'),
-('EDIT_CONTRACT'),
-('VIEW_CONTRACT'),
-('APPROVE_CONTRACT');
+INSERT INTO users (user_name, role_id, email) VALUES
+('Arun Kumar', 16, 'arun.kumar@company.com'),
+('Meena Sharma', 17, 'meena.sharma@company.com'),
+('Ravi Patel', 18, 'ravi.patel@client.com'),
+('Sanjay Rao', 19, 'sanjay.rao@company.com'),
+('Anita Verma', 17, 'anita.verma@company.com');
 
-INSERT INTO contracts (organization_id, title, contract_type, jurisdiction, created_by, risk_score)
-VALUES 
-(1, 'NDA Agreement', 'NDA', 'India', 1, 3.50);
-
-INSERT INTO contract_versions (contract_id, version_number, file_url, edited_by, change_summary)
-VALUES 
-(1, 1, 'https://storage.com/nda_v1.pdf', 1, 'Initial draft');
-
-INSERT INTO red_flags (contract_id, clause_reference, issue_description, severity)
-VALUES 
-(1, 'Clause 4.2', 'Unlimited liability clause detected', 'HIGH');
-
-INSERT INTO human_reviews (contract_id, reviewer_id, comments, rating)
-VALUES 
-(1, 2, 'Needs liability cap adjustment', 4);
-
-INSERT INTO audit_logs (organization_id, user_id, action_type, entity_type, entity_id, ip_address)
-VALUES 
-(1, 1, 'CREATE', 'CONTRACT', 1, '127.0.0.1');
+INSERT INTO contracts 
+(contract_type_id, jurisdiction_id, status_id, created_by) 
+VALUES
+(1, 6, 11, 1),   -- MSA, India, Draft, Arun
+(5, 8, 12, 2),   -- NDA, United States, Review, Meena
+(2, 7, 13, 4),   -- SOW, Global, Under-Review, Sanjay
+(3, 6, 11, 5),   -- Service Agreement, India, Draft, Anita
+(4, 9, 14, 1);   -- Termination Agreement, UK, Rejected, Arun
