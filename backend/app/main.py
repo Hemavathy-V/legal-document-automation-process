@@ -6,9 +6,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.app.routers import contracts_router, login_router, templates_router
+from backend.logger import get_logger
 
+logger = get_logger(__name__)
 
 app = FastAPI(title="Legal Contract Management API")
+logger.info("Initializing Legal Contract Management API")
 
 origins = [
     "http://localhost:3000",
@@ -27,12 +30,17 @@ app.add_middleware(
     allow_headers=["*"],
     expose_headers=["*"],
 )
+logger.info(f"CORS middleware configured with origins: {origins}")
 
 app.include_router(login_router.router, prefix="/api")
+logger.info("Login router included")
 app.include_router(contracts_router.router, prefix="/api")
+logger.info("Contracts router included")
 app.include_router(templates_router.router, prefix="/api")
+logger.info("Templates router included")
 
 
 @app.get("/health")
 def health():
+    logger.debug("Health check endpoint called")
     return {"status": "ok"}

@@ -14,7 +14,9 @@ from backend.app.schemas import (
     UserResponse,
 )
 from database.db_connection import get_connection
+from backend.logger import get_logger
 
+logger = get_logger(__name__)
 
 router = APIRouter(tags=["login"])
 
@@ -22,10 +24,12 @@ router = APIRouter(tags=["login"])
 @router.options("/login")
 def login_options():
     """CORS preflight for POST /api/login."""
+    logger.debug("Login CORS preflight request")
     return {}
 
 
 def _get_user_by_email(email: str) -> Optional[dict]:
+    logger.debug(f"Fetching user from database: {email}")
     conn = get_connection()
     try:
         cursor = conn.cursor(dictionary=True)
@@ -43,7 +47,12 @@ def _get_user_by_email(email: str) -> Optional[dict]:
             """,
             (email,),
         )
-        return cursor.fetchone()
+        result = cursor.fetchone()
+        if result:
+            logger.debug(f"User found: {email} (ID: {result['user_id']})")
+        else:
+            logger.warning(f"User not found: {email}")
+        return result
     finally:
         cursor.close()
         conn.close()
@@ -54,14 +63,17 @@ def login(request: LoginRequest):
     """
     Login with email and password. Returns JWT and user info.
     """
+    logger.info(f"Login attempt for email: {request.email}")
     user_row = _get_user_by_email(request.email)
     if not user_row or not user_row.get("password"):
+        logger.warning(f"Login failed - invalid credentials for: {request.email}")
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid email or password",
         )
 
     if request.password != user_row["password"]:
+        logger.warning(f"Login failed - password mismatch for: {request.email}")
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid email or password",
@@ -74,6 +86,7 @@ def login(request: LoginRequest):
         role=user_row["role"],
     )
     access_token = create_access_token(data={"sub": user.email})
+    logger.info(f"User logged in successfully: {user.user_name} (ID: {user.user_id})")
     return TokenResponse(access_token=access_token, user=user)
 
 
@@ -82,12 +95,14 @@ def register(request: RegisterRequest):
     """
     Register a new user with password and role.
     """
+    logger.info(f"Registration attempt for email: {request.email}, username: {request.user_name}")
     conn = get_connection()
     try:
         cursor = conn.cursor(dictionary=True)
 
         cursor.execute("SELECT user_id FROM users WHERE email = %s", (request.email,))
         if cursor.fetchone():
+            logger.warning(f"Registration failed - email already registered: {request.email}")
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Email already registered",
@@ -103,11 +118,13 @@ def register(request: RegisterRequest):
         )
         role_row = cursor.fetchone()
         if not role_row:
+            logger.warning(f"Registration failed - invalid role: {request.role}")
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Invalid role",
             )
 
+        logger.debug(f"Inserting new user: {request.user_name}")
         cursor.execute(
             """
             INSERT INTO users (user_name, role_id, email, password)
@@ -117,12 +134,16 @@ def register(request: RegisterRequest):
         )
         conn.commit()
         user_id = cursor.lastrowid
+        logger.info(f"User registered successfully: {request.user_name} (ID: {user_id}, Email: {request.email})")
         return UserResponse(
             user_id=user_id,
             user_name=request.user_name,
             email=request.email,
             role=request.role,
         )
+    except Exception as e:
+        logger.error(f"Registration error: {str(e)}")
+        raise
     finally:
         cursor.close()
         conn.close()

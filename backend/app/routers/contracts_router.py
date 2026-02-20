@@ -9,7 +9,9 @@ from fastapi import APIRouter, Depends
 from backend.app.deps import get_current_user
 from backend.app.schemas import ContractResponse, UserResponse
 from database.db_connection import get_connection
+from backend.logger import get_logger
 
+logger = get_logger(__name__)
 
 router = APIRouter(tags=["contracts"])
 
@@ -19,9 +21,11 @@ def list_contracts(current_user: UserResponse = Depends(get_current_user)):
     """
     List all contracts with type, jurisdiction, status and creator.
     """
+    logger.info(f"User {current_user.user_name} (ID: {current_user.user_id}) requested contracts list")
     conn = get_connection()
     try:
         cursor = conn.cursor(dictionary=True)
+        logger.debug("Fetching contracts from database")
         cursor.execute(
             """
             SELECT
@@ -38,7 +42,13 @@ def list_contracts(current_user: UserResponse = Depends(get_current_user)):
             ORDER BY c.contract_id
             """
         )
-        return cursor.fetchall()
+        contracts = cursor.fetchall()
+        logger.info(f"Retrieved {len(contracts)} contracts from database")
+        return contracts
+    except Exception as e:
+        logger.error(f"Error fetching contracts: {str(e)}")
+        raise
     finally:
         cursor.close()
         conn.close()
+        logger.debug("Database connection closed")

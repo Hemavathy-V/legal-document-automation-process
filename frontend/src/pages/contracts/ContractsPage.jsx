@@ -1,7 +1,7 @@
 /**
  * Contracts page: list contracts with status and jurisdiction filters.
  */
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { fetchContracts } from "../../api/contracts.js";
 import ContractsTable from "./ContractsTable.jsx";
 
@@ -10,9 +10,12 @@ function ContractsPage({ token }) {
   const [statusFilter, setStatusFilter] = useState("all");
   const [jurisdictionFilter, setJurisdictionFilter] = useState("all");
   const [loaded, setLoaded] = useState(false);
+  const hasFetched = useRef(false);
 
   React.useEffect(() => {
-    if (!token) return;
+    if (!token || hasFetched.current) return;
+    hasFetched.current = true;
+    
     fetchContracts(token)
       .then(setContracts)
       .catch(() => setContracts([]))
