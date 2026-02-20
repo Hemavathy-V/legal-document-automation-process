@@ -1,7 +1,7 @@
 """
 Template Parser Module
-Extracts placeholders from DOCX contract templates and collects user inputs
-Supports both simple placeholders and Handlebars/Mustache-style loops
+Extracts placeholders from DOCX contract templates
+Provides reusable contract processing utilities for API workflows
 """
 
 import re
@@ -9,7 +9,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 from docx import Document
-from typing import Dict, List, Any, Tuple
+from typing import Dict, List, Any, Tuple, Optional
 
 
 class TemplateParser:
@@ -75,108 +75,8 @@ class TemplateParser:
         return self.template_path.stem.replace("-Template", "").replace("-", "")
 
 
-class InputCollector:
-    """Collect user inputs for contract placeholders"""
-    
-    def __init__(self, simple_placeholders: List[str], loop_placeholders: Dict[str, List[str]]):
-        """
-        Initialize input collector
-        
-        Args:
-            simple_placeholders: List of simple placeholder fields
-            loop_placeholders: Dictionary of loop fields with nested fields
-        """
-        self.simple_placeholders = simple_placeholders
-        self.loop_placeholders = loop_placeholders
-        self.user_data = {}
-    
-    def _format_field_name(self, field: str) -> str:
-        """
-        Convert field names to readable questions
-        E.g., 'effectiveDate' -> 'Effective Date'
-        """
-        # Handle dot notation (e.g., 'deliverable.name' -> 'deliverable name')
-        field = field.replace("_", " ").replace(".", " ")
-        
-        # Add space before capital letters (camelCase)
-        field = re.sub(r'([a-z])([A-Z])', r'\1 \2', field)
-        
-        return field.strip()
-    
-    def collect_simple_inputs(self) -> Dict[str, str]:
-        """Collect inputs for simple placeholders"""
-        print("\n" + "="*70)
-        print("COLLECTING CONTRACT INFORMATION")
-        print("="*70 + "\n")
-        
-        for placeholder in self.simple_placeholders:
-            field_name = self._format_field_name(placeholder)
-            prompt = f"{field_name}: "
-            
-            while True:
-                user_input = input(prompt).strip()
-                if user_input:
-                    self.user_data[placeholder] = user_input
-                    break
-                else:
-                    print("This field cannot be empty. Please enter a value.")
-        
-        return self.user_data
-    
-    def collect_loop_inputs(self) -> Dict[str, List[Dict[str, str]]]:
-        """Collect inputs for loop-based sections"""
-        loop_data = {}
-        
-        for loop_name, nested_fields in self.loop_placeholders.items():
-            print(f"\n{'-'*70}")
-            print(f"Section: {self._format_field_name(loop_name)}")
-            print(f"{'-'*70}")
-            
-            items = []
-            count = 1
-            
-            while True:
-                print(f"\nEntry {count}:")
-                item_data = {}
-                
-                for field in nested_fields:
-                    field_name = self._format_field_name(field)
-                    prompt = f"  {field_name}: "
-                    
-                    user_input = input(prompt).strip()
-                    if user_input:
-                        item_data[field] = user_input
-                
-                if item_data:
-                    items.append(item_data)
-                
-                # Ask if user wants to add another entry
-                add_more = input("\nAdd another entry? (y/n): ").strip().lower()
-                if add_more != 'y':
-                    break
-                
-                count += 1
-            
-            if items:
-                loop_data[loop_name] = items
-        
-        return loop_data
-    
-    def get_all_inputs(self) -> Dict[str, Any]:
-        """Collect all inputs (simple + loops) and return combined dictionary"""
-        # Collect simple placeholders
-        self.collect_simple_inputs()
-        
-        # Collect loop-based inputs
-        if self.loop_placeholders:
-            loop_data = self.collect_loop_inputs()
-            self.user_data.update(loop_data)
-        
-        return self.user_data
-
-
 class ContractProcessor:
-    """Main processor for contract template selection and JSON generation"""
+    """Processor for template lookup, placeholder extraction, and JSON output generation"""
     
     def __init__(self, templates_dir: Path, output_dir: Path):
         """
@@ -194,99 +94,47 @@ class ContractProcessor:
         """List all available DOCX templates"""
         templates = list(self.templates_dir.glob("*.docx"))
         return sorted(templates)
-    
-    def select_template(self) -> Path:
-        """
-        Display templates and let user select one
-        
-        Returns:
-            Path to selected template
-        """
-        templates = self.list_available_templates()
-        
-        if not templates:
-            print("No templates found in the templates directory!")
+
+    def list_template_names(self) -> List[str]:
+        """List available template names without extensions"""
+        return [template.stem for template in self.list_available_templates()]
+
+    def get_template_path(self, template_name: str) -> Optional[Path]:
+        """Resolve a template name to a DOCX path"""
+        normalized_name = template_name.strip()
+        if not normalized_name:
             return None
-        
-        print("\n" + "="*70)
-        print("AVAILABLE CONTRACT TEMPLATES")
-        print("="*70 + "\n")
-        
-        for idx, template in enumerate(templates, 1):
-            template_name = template.stem.replace("-Template", "").replace("-", " ")
-            print(f"  {idx}. {template_name}")
-        
-        while True:
-            try:
-                choice = input(f"\nSelect template (1-{len(templates)}): ").strip()
-                choice_idx = int(choice) - 1
-                
-                if 0 <= choice_idx < len(templates):
-                    return templates[choice_idx]
-                else:
-                    print(f"Please enter a number between 1 and {len(templates)}")
-            except ValueError:
-                print("Invalid input. Please enter a number.")
-    
-    def process_contract(self) -> bool:
-        """
-        Main workflow: select template, extract placeholders, collect inputs, save JSON
-        
-        Returns:
-            True if successful, False otherwise
-        """
-        # Step 1: Select template
-        template_path = self.select_template()
+
+        template_file = normalized_name if normalized_name.lower().endswith(".docx") else f"{normalized_name}.docx"
+        template_path = self.templates_dir / template_file
+        if template_path.exists():
+            return template_path
+
+        return None
+
+    def get_template_placeholders(self, template_name: str) -> Tuple[List[str], Dict[str, List[str]]]:
+        """Get simple and loop placeholders for a specific template"""
+        template_path = self.get_template_path(template_name)
         if not template_path:
-            return False
-        
-        print(f"\nSelected: {template_path.stem}")
-        
-        # Step 2: Parse template
-        try:
-            parser = TemplateParser(template_path)
-            simple_placeholders, loop_placeholders = parser.get_all_placeholders()
-            template_name = parser.get_template_filename()
-            
-            print(f"Found {len(simple_placeholders)} simple fields")
-            if loop_placeholders:
-                print(f"Found {len(loop_placeholders)} repeating sections")
-        except Exception as e:
-            print(f"Error parsing template: {e}")
-            return False
-        
-        # Step 3: Collect inputs
-        try:
-            collector = InputCollector(simple_placeholders, loop_placeholders)
-            user_data = collector.get_all_inputs()
-        except KeyboardInterrupt:
-            print("\n\nProcess cancelled by user.")
-            return False
-        except Exception as e:
-            print(f"Error collecting inputs: {e}")
-            return False
-        
-        # Step 4: Save to JSON
-        try:
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"{template_name}_{timestamp}.json"
-            filepath = self.output_dir / filename
-            
-            with open(filepath, "w", encoding="utf-8") as f:
-                json.dump(user_data, f, indent=4, ensure_ascii=False)
-            
-            print("\n" + "="*70)
-            print("SUCCESS!")
-            print("="*70)
-            print(f"\nContract data saved to:")
-            print(f"   {filepath}")
-            print(f"\nTotal fields collected: {self._count_fields(user_data)}")
-            print("="*70 + "\n")
-            return True
-        
-        except Exception as e:
-            print(f"Error saving JSON: {e}")
-            return False
+            raise FileNotFoundError(f"Template '{template_name}' not found")
+
+        parser = TemplateParser(template_path)
+        return parser.get_all_placeholders()
+
+    def save_contract_data(self, template_name: str, data: Dict[str, Any]) -> Path:
+        """Save contract payload to output directory as JSON"""
+        template_path = self.get_template_path(template_name)
+        if not template_path:
+            raise FileNotFoundError(f"Template '{template_name}' not found")
+
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{template_path.stem}_{timestamp}.json"
+        filepath = self.output_dir / filename
+
+        with open(filepath, "w", encoding="utf-8") as file_obj:
+            json.dump(data, file_obj, indent=4, ensure_ascii=False)
+
+        return filepath
     
     @staticmethod
     def _count_fields(data: Dict) -> int:
@@ -298,19 +146,3 @@ class ContractProcessor:
             else:
                 count += 1
         return count
-
-
-def main():
-    """Main entry point"""
-    # Setup paths
-    current_dir = Path(__file__).parent
-    templates_dir = current_dir.parent.parent.parent / "sample_templates"
-    output_dir = current_dir.parent.parent / "output"
-    
-    # Process contract
-    processor = ContractProcessor(templates_dir, output_dir)
-    processor.process_contract()
-
-
-if __name__ == "__main__":
-    main()
