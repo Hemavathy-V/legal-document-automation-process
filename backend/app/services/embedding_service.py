@@ -1,12 +1,15 @@
 import ollama
 
-OLLAMA_EMBED_URL = "http://localhost:11434/api/embeddings"
-EMBED_MODEL = "nomic-embed-text"
-
+MODEL = "nomic-embed-text"
 
 def generate_embedding(text: str):
+
+    if not text.strip():
+        raise ValueError("Empty text")
+
     response = ollama.embeddings(
-        model="nomic-embed-text",
-        prompt=text
+        model=MODEL,
+        prompt=text.strip()
     )
+
     return response["embedding"]
