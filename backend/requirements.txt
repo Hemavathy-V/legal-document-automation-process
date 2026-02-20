@@ -1,4 +1,4 @@
-mysql-connector-python 
+mysql-connector-python
 python-docx
 fastapi
 uvicorn
@@ -7,3 +7,13 @@ openpyxl
 requests
 chromadb
 python-dotenv
+fastapi
+uvicorn
+email-validator
+pandas
+openpyxl
+requests
+chromadb
+ollama
+python-jose[cryptography]
+passlib[bcrypt]
