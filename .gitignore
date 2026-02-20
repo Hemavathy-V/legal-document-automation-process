@@ -1,7 +1,7 @@
 # Environments
 venv/
 .venv/
-<<<<<<< Updated upstream
+
 .env
 
 # Output folder
@@ -12,7 +12,7 @@ __pycache__/
 *.pyc
 *.pyo
 
-=======
 __pycache__/
 .env
->>>>>>> Stashed changes
+
+node_modules

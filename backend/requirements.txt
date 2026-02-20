@@ -1,13 +1,13 @@
-mysql-connector-python 
+mysql-connector-python
 python-docx
 python-dotenv
-<<<<<<< Updated upstream
-=======
 fastapi
 uvicorn
+email-validator
 pandas
 openpyxl
 requests
 chromadb
 ollama
->>>>>>> Stashed changes
+python-jose[cryptography]
+passlib[bcrypt]

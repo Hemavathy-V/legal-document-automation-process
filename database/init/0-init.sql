@@ -1,8 +1,8 @@
-CREATE DATABASE IF NOT EXISTS contract_management
+CREATE DATABASE IF NOT EXISTS contract_management1
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
 
-USE contract_management;
+USE contract_management1;
 
 CREATE TABLE look_up (
     lookup_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -20,6 +20,7 @@ CREATE TABLE users (
     user_name VARCHAR(30) NOT NULL,
     role_id INT NOT NULL,
     email VARCHAR(30) UNIQUE NOT NULL,
+    password VARCHAR(35) NULL,
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
