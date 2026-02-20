@@ -2,6 +2,9 @@
 venv/
 .venv/
 .env
+__pycache__/
+~$clause_lib.xlsx
+chroma_DB/
 
 # Output folder
 output/
