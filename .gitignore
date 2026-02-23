@@ -19,4 +19,4 @@ __pycache__/
 .env
 
 node_modules/
-logs
+logs/

@@ -67,7 +67,7 @@ function App() {
             </div>
 
             {/* Pages */}
-            {activePage === "generate" && <ContractGenerationPage />}
+            {activePage === "generate" && <ContractGenerationPage token={token} />}
             {activePage === "contracts" && <ContractsPage token={token} />}
             {activePage === "templates" && <TemplatesPage token={token} />}
           </>

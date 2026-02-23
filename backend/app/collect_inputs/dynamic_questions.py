@@ -132,6 +132,8 @@ class ContractProcessor:
             logger.warning("Empty template name received while resolving template path")
             return None
 
+        # Convert spaces to hyphens to match file naming convention
+        normalized_name = normalized_name.replace(" ", "-")
         template_file = normalized_name if normalized_name.lower().endswith(".docx") else f"{normalized_name}.docx"
         template_path = self.templates_dir / template_file
         if template_path.exists():

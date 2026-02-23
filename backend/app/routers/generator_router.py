@@ -90,6 +90,80 @@ def get_template_placeholders(template_name: str):
         ) from e
 
 
+@router.get("/templates/{template_name}/content")
+def get_template_content(template_name: str):
+    """
+    Get the full text content of a template document.
+    
+    Returns:
+      - content: The full text extracted from the DOCX template
+    """
+    logger.info(f"Request: Get content for template '{template_name}'")
+    try:
+        template_path = processor.get_template_path(template_name)
+        if not template_path:
+            logger.warning(f"Template not found: {template_name}")
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Template '{template_name}' not found"
+            )
+        
+        from docx import Document
+        doc = Document(template_path)
+        
+        # Build HTML content with proper formatting
+        html_content = '<div class="document-view">'
+        
+        for para in doc.paragraphs:
+            # Get paragraph style for formatting
+            style_name = para.style.name
+            style_class = f"para-{style_name.lower().replace(' ', '-')}"
+            
+            # Build paragraph with run formatting
+            para_html = ''
+            for run in para.runs:
+                text = run.text
+                if text:
+                    # Apply text formatting
+                    if run.bold:
+                        text = f'<strong>{text}</strong>'
+                    if run.italic:
+                        text = f'<em>{text}</em>'
+                    if run.underline:
+                        text = f'<u>{text}</u>'
+                    para_html += text
+            
+            # Determine paragraph element
+            if style_name.startswith('Heading'):
+                level = style_name.split()[-1] if style_name.split()[-1].isdigit() else '2'
+                html_content += f'<h{level} class="{style_class}">{para_html if para_html else para.text}</h{level}>'
+            elif style_name == 'List Bullet':
+                html_content += f'<li class="{style_class}">{para_html if para_html else para.text}</li>'
+            else:
+                html_content += f'<p class="{style_class}">{para_html if para_html else para.text}</p>'
+        
+        html_content += '</div>'
+        
+        logger.info(f"Template content retrieved for '{template_name}' as HTML")
+        return {
+            "template_name": template_name,
+            "content": html_content,
+            "format": "html"
+        }
+    except FileNotFoundError as e:
+        logger.warning(f"Template file not found: {template_name}")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Template '{template_name}' not found"
+        ) from e
+    except Exception as e:
+        logger.error(f"Error getting content for '{template_name}': {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Unable to read template: {str(e)}"
+        ) from e
+
+
 @router.post("/contracts/data", response_model=ContractDataResponse)
 def save_contract_data(request: ContractDataRequest):
     """

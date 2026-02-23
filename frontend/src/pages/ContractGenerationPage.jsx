@@ -9,7 +9,7 @@ import DynamicForm from "../components/DynamicForm.jsx";
 import { fetchTemplates, fetchPlaceholders, submitContract } from "../api/contracts.js";
 import "../styles.css";
 
-function ContractGenerationPage() {
+function ContractGenerationPage({ token }) {
   const [templates, setTemplates] = useState([]);
   const [selectedTemplate, setSelectedTemplate] = useState("");
   const [placeholders, setPlaceholders] = useState(null);
@@ -23,8 +23,8 @@ function ContractGenerationPage() {
     const loadTemplates = async () => {
       try {
         setLoading(true);
-        const data = await fetchTemplates();
-        setTemplates(data.templates || []);
+        const data = await fetchTemplates(token);
+        setTemplates(data || []);
         setError("");
       } catch (err) {
         setError(err.message || "Failed to load templates");
@@ -35,7 +35,7 @@ function ContractGenerationPage() {
     };
 
     loadTemplates();
-  }, []);
+  }, [token]);
 
   // Fetch placeholders when template changes
   useEffect(() => {
@@ -47,7 +47,7 @@ function ContractGenerationPage() {
     const loadPlaceholders = async () => {
       try {
         setLoading(true);
-        const data = await fetchPlaceholders(selectedTemplate);
+        const data = await fetchPlaceholders(selectedTemplate, token);
         setPlaceholders(data);
         setError("");
       } catch (err) {
@@ -59,13 +59,13 @@ function ContractGenerationPage() {
     };
 
     loadPlaceholders();
-  }, [selectedTemplate]);
+  }, [selectedTemplate, token]);
 
   const handleFormSubmit = async (formData) => {
     try {
       setFormLoading(true);
       setError("");
-      const result = await submitContract(selectedTemplate, formData);
+      const result = await submitContract(selectedTemplate, formData, token);
       setSuccess(`Contract generated successfully! File: ${result.file}`);
       setSelectedTemplate("");
       setPlaceholders(null);
@@ -97,8 +97,8 @@ function ContractGenerationPage() {
             >
               <option value="">-- Choose a template --</option>
               {templates.map((template) => (
-                <option key={template} value={template}>
-                  {template}
+                <option key={template.id} value={template.template_name}>
+                  {template.template_name}
                 </option>
               ))}
             </select>

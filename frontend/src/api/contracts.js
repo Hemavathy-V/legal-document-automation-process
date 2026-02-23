@@ -10,20 +10,27 @@ export async function fetchContracts(token) {
   return handleResponse(response);
 }
 
-export async function fetchTemplates() {
-  const response = await fetch(`${API_BASE_URL}/templates`);
+export async function fetchTemplates(token) {
+  const response = await fetch(`${API_BASE_URL}/api/templates`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
   return handleResponse(response);
 }
 
-export async function fetchPlaceholders(templateName) {
-  const response = await fetch(`${API_BASE_URL}/templates/${templateName}/placeholders`);
+export async function fetchPlaceholders(templateName, token) {
+  const response = await fetch(`${API_BASE_URL}/api/templates/${templateName}/placeholders`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
   return handleResponse(response);
 }
 
-export async function submitContract(templateName, data) {
-  const response = await fetch(`${API_BASE_URL}/contracts/data`, {
+export async function submitContract(templateName, data, token) {
+  const response = await fetch(`${API_BASE_URL}/api/contracts/data`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { 
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({ template_name: templateName, data }),
   });
   return handleResponse(response);
