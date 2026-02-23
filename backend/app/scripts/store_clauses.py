@@ -1,35 +1,33 @@
+import sys
 import pandas as pd
-from app.database.clause_collection import get_clause_collection
 from app.services.embedding_service import generate_embedding
+from app.services.clause_service import store_clauses
 
-def store_clauses():
-    df = pd.read_excel(r"D:\legal-document-automation\legal-document-automation-process\backend\clause_lib.xlsx")
 
-    df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
+file_path = sys.argv[1]
+df = pd.read_excel(file_path)
+df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
 
-    collection = get_clause_collection()
+ids, docs, embeds, metas = [], [], [], []
 
-    for index, row in df.iterrows():
-        clause_text = row["clause_text"] 
+for index, row in df.iterrows():
+    text = row["clause_text"] 
 
-        embedding = generate_embedding(clause_text)
+    emb = generate_embedding(text)
         
-        collection.add(
-            ids=[str(index)],
-            documents=[row["clause_text"]],
-            embeddings=[embedding],
-            metadatas=[{
-                "clause_name": row["clause_name"],
-                "clause_type": row["clause_type"],
-                "agreement_type": row["agreement_type"],
-                "playbook_tier": row["playbook_tier"],
-                "jurisdiction": row["jurisdiction"],
-                "comments": row["comments"],
-                "risk_level": row["risk_level"]
-            }]
-        )
+    ids.append(str(index))
+    docs.append(text)
+    embeds.append(emb)
+    metas.append({
+        "clause_name": row["clause_name"],
+        "clause_type": row["clause_type"],
+        "agreement_type": row["agreement_type"],
+        "playbook_tier": row["playbook_tier"],
+        "jurisdiction": row["jurisdiction"],
+        "comments": row["comments"],
+        "risk_level": row["risk_level"]
+    })
 
-    print("Clauses stored successfully in chroma!")
+store_clauses(ids, docs, embeds, metas)
 
-if __name__ == "__main__":
-    store_clauses()
+print("Clauses stored successfully in chroma!")

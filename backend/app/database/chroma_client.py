@@ -1,8 +1,5 @@
 import chromadb
-from chromadb.config import Settings
-import os
+from app.config import CHROMA_PERSIST_DIR
 
 def get_chroma_client():
-    persist_path = os.path.abspath("app\database\chroma_DB")
-
-    return chromadb.PersistentClient(path=persist_path)
+    return chromadb.PersistentClient(path=CHROMA_PERSIST_DIR)
