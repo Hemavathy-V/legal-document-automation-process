@@ -1,3 +1,16 @@
+"""
+Prompt template for AI-assisted legal contract generation.
+
+Usage:
+    final_prompt = CONTRACT_PROMPT.format(
+        contract_type=contract_type,
+        contract_template_text=template_text,
+        user_input_json=json.dumps(user_input_data, indent=2),
+        regional_law_text=regional_law_text,
+        kb_clauses_text=kb_clauses_text,
+    )
+"""
+
 CONTRACT_PROMPT = """
 CONTEXT:
 The user is generating a legal contract document. The system has access to:
@@ -59,11 +72,11 @@ PERFORMANCE:
 EXAMPLE:
 
 Example User Input:
-{
+{{
   "effectiveDate": "1 January 2026",
   "clientName": "ABC Pvt Ltd",
   "clientAddress": "Colombo, Sri Lanka"
-}
+}}
 
 Example Template Snippet:
 This Agreement is made on {{effectiveDate}} between {{clientName}} of {{clientAddress}} and {{providerName}}.
@@ -72,18 +85,10 @@ Example Knowledge Base Clause:
 Confidential information must be stored securely.
 
 Example Regional Law Requirement:
-Governing law: Sri Lanka. Confidentiality obligations must comply with Sri Lanka’s Contract Act No. 23 of 1871.
+Governing law: Sri Lanka. Confidentiality obligations must comply with Sri Lanka's Contract Act No. 23 of 1871.
 
 Expected Output Format:
 This Agreement is made on 1 January 2026 between ABC Pvt Ltd of Colombo, Sri Lanka and [Service Provider Name].
-Confidential information must be stored securely in accordance with Sri Lanka’s Contract Act No. 23 of 1871.
+Confidential information must be stored securely in accordance with Sri Lanka's Contract Act No. 23 of 1871.
 ...
 """
-
-# final_prompt = CONTRACT_PROMPT.format(
-#     contract_type=contract_type,
-#     contract_template_text=template_text,
-#     user_input_json=json.dumps(user_input_data, indent=2),
-#     regional_law_text=regional_law_text,
-#     kb_clauses_text=kb_clauses_text
-# )

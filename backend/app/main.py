@@ -1,11 +1,11 @@
 """
 Legal Contract Management API.
-Routes are grouped by feature: login, contracts, templates.
+Routes are grouped by feature: login, contracts, templates, users.
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.app.routers import contracts_router, login_router, templates_router
+from backend.app.routers import contracts_router, login_router, templates_router, users_router
 from backend.logger import get_logger
 
 logger = get_logger(__name__)
@@ -38,6 +38,8 @@ app.include_router(contracts_router.router, prefix="/api")
 logger.info("Contracts router included")
 app.include_router(templates_router.router, prefix="/api")
 logger.info("Templates router included")
+app.include_router(users_router.router, prefix="/api")
+logger.info("Users router included")
 
 
 @app.get("/health")

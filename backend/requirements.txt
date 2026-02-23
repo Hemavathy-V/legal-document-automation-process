@@ -10,4 +10,4 @@ requests
 chromadb
 ollama
 python-jose[cryptography]
-passlib[bcrypt]
+bcrypt
