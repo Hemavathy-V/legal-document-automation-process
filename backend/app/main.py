@@ -6,6 +6,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
+from logger import setup_logging
 from app.collect_inputs.dynamic_questions import ContractProcessor
 
 
@@ -52,6 +53,9 @@ app.add_middleware(
     allow_headers=["*"],
     expose_headers=["*"],
 )
+
+# Setup logging at function level (shows setup_logging() in logs, not <module>())
+setup_logging()
 
 # Initialize processor
 BASE_DIR = Path(__file__).resolve().parent.parent

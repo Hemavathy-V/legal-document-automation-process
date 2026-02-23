@@ -16,6 +16,7 @@ from datetime import datetime
 
 # Create logs directory if it doesn't exist
 LOGS_DIR = Path(__file__).parent.parent / "logs"
+LOGS_DIR = LOGS_DIR.resolve()  # Normalize path and resolve to absolute
 LOGS_DIR.mkdir(exist_ok=True)
 
 # Log file paths - Single log file per application session
@@ -88,11 +89,11 @@ def get_logger(name: str) -> logging.Logger:
 
 
 # ============================================
-# Root logger initialization
+# Root logger initialization (module level)
 # ============================================
 root_logger = get_logger(__name__)
 
-# Log application startup information
+# Log application startup information at module level
 root_logger.info("=" * 80)
 root_logger.info("Legal Document Automation System - Logging Initialized")
 root_logger.info(f"Log directory: {LOGS_DIR}")
@@ -100,3 +101,20 @@ root_logger.info(f"Main log file: {LOG_FILE}")
 root_logger.info(f"Error log file: {ERROR_LOG_FILE}")
 root_logger.info("=" * 80)
 root_logger.debug("Logging system ready. All modules can now use get_logger(__name__)")
+
+
+# ============================================
+# Optional setup function (function level)
+# ============================================
+def setup_logging():
+    """
+    Optional setup function to be called from main.py for operational logging.
+    This logs with a function name instead of <module>().
+    
+    Example:
+        from backend.logger import setup_logging
+        setup_logging()  # Shows: setup_logging() - Logging configured...
+    """
+    setup_logger = get_logger(__name__)
+    setup_logger.info("Logging system configured and ready for operations")
+    return setup_logger
