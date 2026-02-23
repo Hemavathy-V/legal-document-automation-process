@@ -1,1 +1,80 @@
 {"asctime": "2026-02-20 18:31:13,127", "levelname": "INFO", "name": "api", "message": "api_request", "method": "GET", "url": "http://127.0.0.1:8000/", "status": 200, "duration": 0.002}
+{"asctime": "2026-02-23 10:54:36,894", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 10:54:36,895", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 11:20:40,160", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:20:40,161", "levelname": "INFO", "name": "logger", "message": "Legal Document Automation System - Logging Initialized"}
+{"asctime": "2026-02-23 11:20:40,162", "levelname": "INFO", "name": "logger", "message": "Log directory: D:\\legal-document-automation\\legal-document-automation-process\\logs"}
+{"asctime": "2026-02-23 11:20:40,163", "levelname": "INFO", "name": "logger", "message": "Main log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\app_20260223_112040.log"}
+{"asctime": "2026-02-23 11:20:40,165", "levelname": "INFO", "name": "logger", "message": "Error log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\error_20260223_112040.log"}
+{"asctime": "2026-02-23 11:20:40,166", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:20:40,167", "levelname": "DEBUG", "name": "logger", "message": "Logging system ready. All modules can now use get_logger(__name__)"}
+{"asctime": "2026-02-23 11:20:43,711", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:20:43,712", "levelname": "INFO", "name": "logger", "message": "Legal Document Automation System - Logging Initialized"}
+{"asctime": "2026-02-23 11:20:43,713", "levelname": "INFO", "name": "logger", "message": "Log directory: D:\\legal-document-automation\\legal-document-automation-process\\logs"}
+{"asctime": "2026-02-23 11:20:43,715", "levelname": "INFO", "name": "logger", "message": "Main log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\app_20260223_112043.log"}
+{"asctime": "2026-02-23 11:20:43,716", "levelname": "INFO", "name": "logger", "message": "Error log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\error_20260223_112043.log"}
+{"asctime": "2026-02-23 11:20:43,718", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:20:43,719", "levelname": "DEBUG", "name": "logger", "message": "Logging system ready. All modules can now use get_logger(__name__)"}
+{"asctime": "2026-02-23 11:22:41,620", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:22:41,622", "levelname": "INFO", "name": "logger", "message": "Legal Document Automation System - Logging Initialized"}
+{"asctime": "2026-02-23 11:22:41,625", "levelname": "INFO", "name": "logger", "message": "Log directory: D:\\legal-document-automation\\legal-document-automation-process\\logs"}
+{"asctime": "2026-02-23 11:22:41,627", "levelname": "INFO", "name": "logger", "message": "Main log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\app_20260223_112241.log"}
+{"asctime": "2026-02-23 11:22:41,630", "levelname": "INFO", "name": "logger", "message": "Error log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\error_20260223_112241.log"}
+{"asctime": "2026-02-23 11:22:41,633", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:22:41,635", "levelname": "DEBUG", "name": "logger", "message": "Logging system ready. All modules can now use get_logger(__name__)"}
+{"asctime": "2026-02-23 11:24:02,317", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:24:02,320", "levelname": "INFO", "name": "logger", "message": "Legal Document Automation System - Logging Initialized"}
+{"asctime": "2026-02-23 11:24:02,322", "levelname": "INFO", "name": "logger", "message": "Log directory: D:\\legal-document-automation\\legal-document-automation-process\\logs"}
+{"asctime": "2026-02-23 11:24:02,324", "levelname": "INFO", "name": "logger", "message": "Main log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\app_20260223_112402.log"}
+{"asctime": "2026-02-23 11:24:02,327", "levelname": "INFO", "name": "logger", "message": "Error log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\error_20260223_112402.log"}
+{"asctime": "2026-02-23 11:24:02,331", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:24:02,334", "levelname": "DEBUG", "name": "logger", "message": "Logging system ready. All modules can now use get_logger(__name__)"}
+{"asctime": "2026-02-23 11:24:17,981", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:24:17,983", "levelname": "INFO", "name": "logger", "message": "Legal Document Automation System - Logging Initialized"}
+{"asctime": "2026-02-23 11:24:17,986", "levelname": "INFO", "name": "logger", "message": "Log directory: D:\\legal-document-automation\\legal-document-automation-process\\logs"}
+{"asctime": "2026-02-23 11:24:17,988", "levelname": "INFO", "name": "logger", "message": "Main log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\app_20260223_112417.log"}
+{"asctime": "2026-02-23 11:24:17,991", "levelname": "INFO", "name": "logger", "message": "Error log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\error_20260223_112417.log"}
+{"asctime": "2026-02-23 11:24:17,993", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:24:17,995", "levelname": "DEBUG", "name": "logger", "message": "Logging system ready. All modules can now use get_logger(__name__)"}
+{"asctime": "2026-02-23 11:26:14,456", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:26:14,458", "levelname": "INFO", "name": "logger", "message": "Legal Document Automation System - Logging Initialized"}
+{"asctime": "2026-02-23 11:26:14,460", "levelname": "INFO", "name": "logger", "message": "Log directory: D:\\legal-document-automation\\legal-document-automation-process\\logs"}
+{"asctime": "2026-02-23 11:26:14,463", "levelname": "INFO", "name": "logger", "message": "Main log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\app_20260223_112614.log"}
+{"asctime": "2026-02-23 11:26:14,465", "levelname": "INFO", "name": "logger", "message": "Error log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\error_20260223_112614.log"}
+{"asctime": "2026-02-23 11:26:14,480", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:26:14,483", "levelname": "DEBUG", "name": "logger", "message": "Logging system ready. All modules can now use get_logger(__name__)"}
+{"asctime": "2026-02-23 11:26:20,606", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:26:20,609", "levelname": "INFO", "name": "logger", "message": "Legal Document Automation System - Logging Initialized"}
+{"asctime": "2026-02-23 11:26:20,611", "levelname": "INFO", "name": "logger", "message": "Log directory: D:\\legal-document-automation\\legal-document-automation-process\\logs"}
+{"asctime": "2026-02-23 11:26:20,612", "levelname": "INFO", "name": "logger", "message": "Main log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\app_20260223_112620.log"}
+{"asctime": "2026-02-23 11:26:20,615", "levelname": "INFO", "name": "logger", "message": "Error log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\error_20260223_112620.log"}
+{"asctime": "2026-02-23 11:26:20,617", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:26:20,618", "levelname": "DEBUG", "name": "logger", "message": "Logging system ready. All modules can now use get_logger(__name__)"}
+{"asctime": "2026-02-23 11:29:31,575", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:29:31,577", "levelname": "INFO", "name": "logger", "message": "Legal Document Automation System - Logging Initialized"}
+{"asctime": "2026-02-23 11:29:31,582", "levelname": "INFO", "name": "logger", "message": "Log directory: D:\\legal-document-automation\\legal-document-automation-process\\logs"}
+{"asctime": "2026-02-23 11:29:31,584", "levelname": "INFO", "name": "logger", "message": "Main log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\app_20260223_112931.log"}
+{"asctime": "2026-02-23 11:29:31,586", "levelname": "INFO", "name": "logger", "message": "Error log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\error_20260223_112931.log"}
+{"asctime": "2026-02-23 11:29:31,591", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:29:31,592", "levelname": "DEBUG", "name": "logger", "message": "Logging system ready. All modules can now use get_logger(__name__)"}
+{"asctime": "2026-02-23 11:29:44,329", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:29:44,372", "levelname": "INFO", "name": "logger", "message": "Legal Document Automation System - Logging Initialized"}
+{"asctime": "2026-02-23 11:29:44,485", "levelname": "INFO", "name": "logger", "message": "Log directory: D:\\legal-document-automation\\legal-document-automation-process\\logs"}
+{"asctime": "2026-02-23 11:29:44,708", "levelname": "INFO", "name": "logger", "message": "Main log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\app_20260223_112944.log"}
+{"asctime": "2026-02-23 11:29:44,790", "levelname": "INFO", "name": "logger", "message": "Error log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\error_20260223_112944.log"}
+{"asctime": "2026-02-23 11:29:44,822", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:29:44,834", "levelname": "DEBUG", "name": "logger", "message": "Logging system ready. All modules can now use get_logger(__name__)"}
+{"asctime": "2026-02-23 11:33:36,460", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:33:36,531", "levelname": "INFO", "name": "logger", "message": "Legal Document Automation System - Logging Initialized"}
+{"asctime": "2026-02-23 11:33:36,549", "levelname": "INFO", "name": "logger", "message": "Log directory: D:\\legal-document-automation\\legal-document-automation-process\\logs"}
+{"asctime": "2026-02-23 11:33:36,572", "levelname": "INFO", "name": "logger", "message": "Main log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\app_20260223_113336.log"}
+{"asctime": "2026-02-23 11:33:36,644", "levelname": "INFO", "name": "logger", "message": "Error log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\error_20260223_113336.log"}
+{"asctime": "2026-02-23 11:33:36,670", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:33:36,688", "levelname": "DEBUG", "name": "logger", "message": "Logging system ready. All modules can now use get_logger(__name__)"}
+{"asctime": "2026-02-23 11:33:43,636", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:33:43,639", "levelname": "INFO", "name": "logger", "message": "Legal Document Automation System - Logging Initialized"}
+{"asctime": "2026-02-23 11:33:43,640", "levelname": "INFO", "name": "logger", "message": "Log directory: D:\\legal-document-automation\\legal-document-automation-process\\logs"}
+{"asctime": "2026-02-23 11:33:43,643", "levelname": "INFO", "name": "logger", "message": "Main log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\app_20260223_113343.log"}
+{"asctime": "2026-02-23 11:33:43,648", "levelname": "INFO", "name": "logger", "message": "Error log file: D:\\legal-document-automation\\legal-document-automation-process\\logs\\error_20260223_113343.log"}
+{"asctime": "2026-02-23 11:33:43,653", "levelname": "INFO", "name": "logger", "message": "================================================================================"}
+{"asctime": "2026-02-23 11:33:43,657", "levelname": "DEBUG", "name": "logger", "message": "Logging system ready. All modules can now use get_logger(__name__)"}

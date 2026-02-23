@@ -4,10 +4,15 @@ Shared dependencies (e.g. current user from JWT) for protected routes.
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 
-from backend.app.auth import decode_token
-from backend.app.schemas import UserResponse
+# from backend.app.auth import decode_token
+# from backend.app.schemas import UserResponse
+# from database.db_connection import get_connection
+# from backend.logger import get_logger
+
+from app.auth import decode_token
+from app.schemas import UserResponse
+from logger import get_logger
 from database.db_connection import get_connection
-from backend.logger import get_logger
 
 logger = get_logger(__name__)
 

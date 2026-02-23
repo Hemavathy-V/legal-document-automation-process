@@ -1,6 +1,7 @@
 # Environments
 venv/
 .venv/
+.vscode/
 
 .env
 __pycache__/
