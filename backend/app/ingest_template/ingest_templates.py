@@ -9,7 +9,7 @@ from docx import Document
 
 # Add backend to path for logger import
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..'))
-from backend.logger import get_logger
+from app.core.logger import get_logger
 
 logger = get_logger(__name__)
 

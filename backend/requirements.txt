@@ -18,4 +18,4 @@ ollama
 python-jose[cryptography]
 passlib[bcrypt]
 pydantic
-
+python-json-logger

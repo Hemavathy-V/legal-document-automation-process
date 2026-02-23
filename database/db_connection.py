@@ -1,7 +1,10 @@
 import os
 import mysql.connector
 from dotenv import load_dotenv
-from backend.logger import get_logger
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+from app.core.logger import get_logger
 
 logger = get_logger(__name__)
 
