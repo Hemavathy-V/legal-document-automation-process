@@ -1,17 +1,15 @@
-def build_prompt(user_input, clauses):
+def build_prompt(query, clauses):
 
     context = "\n\n".join(clauses)
 
     return f"""
-You are a legal document drafting assistant.
+You are a legal drafting assistant.
 
-Use the provided clauses to generate a professional legal document.
+User request:
+{query}
 
-User Request:
-{user_input}
-
-Relevant Clauses:
+Relevant clauses:
 {context}
 
-Generate a structured legal document:
+Generate a professional legal clause.
 """
