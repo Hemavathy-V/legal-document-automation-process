@@ -1,28 +1,19 @@
-import chromadb
-from chromadb.config import Settings
-from app.config import CHROMA_COLLECTION_NAME, CHROMA_PERSIST_DIR
+from app.database.clause_collection import get_clause_collection
 
-client = chromadb.Client(
-    Settings(
-        persist_directory=CHROMA_PERSIST_DIR,
-        is_persistent=True
-    )
-)
+collection = get_clause_collection()
 
-collection = client.get_or_create_collection(
-    name=CHROMA_COLLECTION_NAME
-)
 
-def store_clauses(ids, texts, embeddings, metadatas):
+def store_clauses(ids, docs, embeddings, metadatas):
     collection.upsert(
         ids=ids,
-        documents=texts,
+        documents=docs,
         embeddings=embeddings,
         metadatas=metadatas
     )
 
-def search_clauses(query_embedding, n_results: int = 5):
+
+def search_clauses(query_embedding, top_k=5):
     return collection.query(
         query_embeddings=[query_embedding],
-        n_results=n_results
+        n_results=top_k
     )
