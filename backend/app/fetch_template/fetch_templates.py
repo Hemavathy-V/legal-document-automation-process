@@ -3,6 +3,13 @@ import shutil
 import mysql.connector
 from pathlib import Path
 from dotenv import load_dotenv
+import sys
+
+# Add backend to path for logger import
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+from backend.logger import get_logger
+
+logger = get_logger(__name__)
 
 # Load environment variables from repo root .env
 load_dotenv(os.path.join(os.path.dirname(__file__), '..', '..', '..', '.env'), override=True)
@@ -24,12 +31,17 @@ def fetch_templates_from_db():
     """
     Fetch contract templates from MySQL database and save them to output folder
     """
+    logger.info("Starting template fetch operation")
+    logger.debug(f"Output folder: {OUTPUT_FOLDER}")
+    logger.debug(f"Project root: {PROJECT_ROOT}")
+    
     try:
         # Create output folder if it doesn't exist
         Path(OUTPUT_FOLDER).mkdir(parents=True, exist_ok=True)
-        print(f"Output folder ready: {OUTPUT_FOLDER}")
+        logger.info(f"Output folder ready: {OUTPUT_FOLDER}")
         
         # Connect to MySQL database
+        logger.debug(f"Connecting to database: {MYSQL_HOST}:{MYSQL_PORT}")
         connection = mysql.connector.connect(
             host=MYSQL_HOST,
             port=MYSQL_PORT,
@@ -37,21 +49,23 @@ def fetch_templates_from_db():
             password=MYSQL_PASSWORD,
             database=MYSQL_DB
         )
+        logger.info("Database connection established")
         
         cursor = connection.cursor(dictionary=True)
         
         # Fetch all contract templates from database
+        logger.debug("Fetching templates from database")
         query = "SELECT id, template_name, template_type, file_path FROM contract_templates"
         cursor.execute(query)
         templates = cursor.fetchall()
         
         if not templates:
-            print("No templates found in database.")
+            logger.warning("No templates found in database")
             cursor.close()
             connection.close()
             return
         
-        print(f"Found {len(templates)} templates in database.\n")
+        logger.info(f"Found {len(templates)} templates in database")
         
         # Process each template
         for template in templates:
@@ -60,12 +74,14 @@ def fetch_templates_from_db():
             template_type = template['template_type']
             file_path = template['file_path']
             
+            logger.debug(f"Processing template {template_id}: {template_name} (type: {template_type})")
+            
             # Construct full file path
             full_source_path = os.path.join(PROJECT_ROOT, file_path)
             
             # Check if source file exists
             if not os.path.exists(full_source_path):
-                print(f"Template {template_id} ({template_name}): File not found at {full_source_path}")
+                logger.warning(f"Template {template_id} ({template_name}): File not found at {full_source_path}")
                 continue
             
             # Create destination path
@@ -74,19 +90,19 @@ def fetch_templates_from_db():
             try:
                 # Copy file to output folder
                 shutil.copy2(full_source_path, destination_path)
-                print(f"Template {template_id} ({template_name}): Successfully copied to {destination_path}")
+                logger.info(f"Template {template_id} ({template_name}): Successfully copied to {destination_path}")
             except Exception as e:
-                print(f"Template {template_id} ({template_name}): Error copying file - {str(e)}")
+                logger.error(f"Template {template_id} ({template_name}): Error copying file - {str(e)}")
         
         cursor.close()
         connection.close()
-        print(f"\nAll available templates have been processed and saved to: {OUTPUT_FOLDER}")
+        logger.info(f"Template fetch operation completed. Templates saved to: {OUTPUT_FOLDER}")
         
     except mysql.connector.Error as err:
-        print(f"Database connection error: {err}")
+        logger.error(f"Database connection error: {err}")
         raise
     except Exception as e:
-        print(f"Error occurred: {str(e)}")
+        logger.error(f"Unexpected error in template fetch: {str(e)}")
         raise
 
 
