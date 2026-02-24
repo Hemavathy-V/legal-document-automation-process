@@ -15,14 +15,15 @@ import TemplatesPage from "./pages/templates/TemplatesPage.jsx";
 import UsersPage from "./pages/admin/UsersPage.jsx";
 
 const ROLE_TABS = {
-  Admin: ["contracts", "templates", "users"],
-  Lawyer: ["contracts", "templates"],
-  "Assistant Lawyer": ["contracts", "templates"],
+  Admin: ["contracts", "generate", "templates", "users"],
+  Lawyer: ["contracts", "generate", "templates"],
+  "Assistant Lawyer": ["contracts", "generate", "templates"],
   Client: ["contracts"],
 };
 
 const TAB_LABELS = {
   contracts: "Contracts",
+  generate: "Generate",
   templates: "Templates",
   users: "Users",
 };
@@ -107,6 +108,7 @@ function App() {
       {/* ── Page content ── */}
       <main className="dashboard-content">
         {activeTab === "contracts" && <ContractsPage token={token} />}
+        {activeTab === "generate" && <ContractGenerationPage token={token} />}
         {activeTab === "templates" && <TemplatesPage token={token} />}
         {activeTab === "users" && user.role === "Admin" && (
           <UsersPage token={token} currentUserId={user.user_id} />

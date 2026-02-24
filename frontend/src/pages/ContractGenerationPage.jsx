@@ -66,7 +66,8 @@ function ContractGenerationPage({ token }) {
       setFormLoading(true);
       setError("");
       const result = await submitContract(selectedTemplate, formData, token);
-      setSuccess(`Contract generated successfully! File: ${result.file}`);
+      const generatedFile = result?.file_path || result?.file || "(file path not returned)";
+      setSuccess(`Contract generated successfully! File: ${generatedFile}`);
       setSelectedTemplate("");
       setPlaceholders(null);
     } catch (err) {
@@ -77,8 +78,8 @@ function ContractGenerationPage({ token }) {
   };
 
   return (
-    <div className="page-container">
-      <div className="card">
+    <div className="page-container generate-page">
+      <div className="card generate-card">
         <h2>Generate Contract</h2>
 
         {/* Template Selection */}

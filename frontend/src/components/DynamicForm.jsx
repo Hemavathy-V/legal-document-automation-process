@@ -78,21 +78,23 @@ function DynamicForm({ placeholders, onSubmit, isLoading }) {
       {simple_fields.length > 0 && (
         <div className="form-section">
           <h3>Basic Information</h3>
-          {simple_fields.map((field) => (
-            <div key={field} className="form-group">
-              <label htmlFor={field} className="form-label">
-                {formatFieldName(field)}
-              </label>
-              <input
-                id={field}
-                type="text"
-                className="form-input"
-                value={simpleData[field] || ""}
-                onChange={(e) => handleSimpleChange(field, e.target.value)}
-                required
-              />
-            </div>
-          ))}
+          <div className="generate-fields-grid">
+            {simple_fields.map((field) => (
+              <div key={field} className="form-group generate-field-item">
+                <label htmlFor={field} className="form-label">
+                  {formatFieldName(field)}
+                </label>
+                <input
+                  id={field}
+                  type="text"
+                  className="form-input"
+                  value={simpleData[field] || ""}
+                  onChange={(e) => handleSimpleChange(field, e.target.value)}
+                  required
+                />
+              </div>
+            ))}
+          </div>
         </div>
       )}
 

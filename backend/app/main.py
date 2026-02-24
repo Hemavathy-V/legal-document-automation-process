@@ -5,9 +5,9 @@ Routes are grouped by feature: login, contracts, templates, users.
 import sys
 import os
 
-# Add parent directory to sys.path so database module can be imported
-# This allows us to import database while running uvicorn from backend/
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
+# Add backend directory to sys.path so `app` package imports resolve
+# This allows running from project root with: uvicorn backend.app.main:app
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
