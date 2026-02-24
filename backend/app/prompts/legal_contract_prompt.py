@@ -29,6 +29,9 @@ INSTRUCTIONS:
 4. Maintain proper legal structure, numbering, formatting, and professional language.
 5. Do NOT leave any {{placeholder}} unreplaced.
 6. Output ONLY the final contract document. Do not include explanations, notes, or commentary.
+7. You MUST use the COMPANY KNOWLEDGE BASE CLAUSES section as the authoritative source for company clauses.
+8. Do NOT invent or generate new company clauses that are not provided.
+9. If the section is empty, proceed without adding additional company clauses.
 
 SPECIFICATION:
 Input Data Provided:
