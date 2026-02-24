@@ -6,14 +6,14 @@ from typing import Optional
 
 from fastapi import APIRouter, HTTPException, status
 
-from backend.app.auth import create_access_token
+from backend.app.auth import create_access_token, get_password_hash, verify_password
 from backend.app.schemas import (
     LoginRequest,
     RegisterRequest,
     TokenResponse,
     UserResponse,
 )
-from database.db_connection import get_connection
+from backend.database.db_connection import get_connection
 from backend.logger import get_logger
 
 logger = get_logger(__name__)
@@ -72,7 +72,7 @@ def login(request: LoginRequest):
             detail="Invalid email or password",
         )
 
-    if request.password != user_row["password"]:
+    if not verify_password(request.password, user_row["password"]):
         logger.warning(f"Login failed - password mismatch for: {request.email}")
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -125,12 +125,13 @@ def register(request: RegisterRequest):
             )
 
         logger.debug(f"Inserting new user: {request.user_name}")
+        hashed_password = get_password_hash(request.password)
         cursor.execute(
             """
             INSERT INTO users (user_name, role_id, email, password)
             VALUES (%s, %s, %s, %s)
             """,
-            (request.user_name, role_row["lookup_id"], request.email, request.password),
+            (request.user_name, role_row["lookup_id"], request.email, hashed_password),
         )
         conn.commit()
         user_id = cursor.lastrowid

@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from backend.app.deps import get_current_user
 from backend.app.schemas import TemplateResponse, UserResponse
 from backend.app.services.template_service import fetch_templates
+from backend.database.db_connection import get_connection
 from backend.logger import get_logger
 
 logger = get_logger(__name__)

@@ -1,23 +1,24 @@
-# Environments
+# Python environments
 venv/
 .venv/
 .vscode/
 
+# Environment secrets
 .env
 __pycache__/
 ~$clause_lib.xlsx
 chroma_DB/
 
-# Output folder
-output/
-
-# Byte-compiled files
+# Compiled Python
 __pycache__/
 *.pyc
 *.pyo
 
-__pycache__/
-.env
+# Log files
+logs/
 
+# Template output
+output/
+
+# Node dependencies
 node_modules/
-logs

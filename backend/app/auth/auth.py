@@ -2,6 +2,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Optional
 import os
 
+import bcrypt
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 # from backend.logger import get_logger
@@ -14,21 +15,28 @@ SECRET_KEY = os.getenv("SECRET_KEY", "CHANGE_ME_TO_A_LONG_RANDOM_SECRET_KEY")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
 
 def verify_password(plain_password: str, password_hash: str) -> bool:
+    """Verify a plain-text password against a stored bcrypt hash."""
     logger.debug("Verifying password")
-    result = pwd_context.verify(plain_password, password_hash)
+    try:
+        result = bcrypt.checkpw(
+            plain_password.encode("utf-8"),
+            password_hash.encode("utf-8"),
+        )
+    except Exception as e:
+        logger.error(f"Password verification error: {e}")
+        result = False
     logger.debug(f"Password verification result: {result}")
     return result
 
 
 def get_password_hash(password: str) -> str:
+    """Hash a plain-text password with bcrypt (cost factor 12)."""
     logger.debug("Generating password hash")
-    hashed = pwd_context.hash(password)
+    hashed = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt(rounds=12))
     logger.debug("Password hash generated successfully")
-    return hashed
+    return hashed.decode("utf-8")
 
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
@@ -52,4 +60,3 @@ def decode_token(token: str) -> dict:
     except JWTError as exc:
         logger.error(f"Failed to decode token: {str(exc)}")
         raise ValueError("Invalid token") from exc
-
