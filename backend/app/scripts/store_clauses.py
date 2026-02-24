@@ -1,3 +1,6 @@
+"""
+Script to store clauses into the vector database.
+"""
 import sys
 import pandas as pd
 from app.services.embedding_service import generate_embedding

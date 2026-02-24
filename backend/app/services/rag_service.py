@@ -1,3 +1,6 @@
+"""
+Retrieval-Augmented Generation (RAG) service.
+"""
 from app.services.embedding_service import generate_embedding
 from app.services.clause_service import search_clauses
 from app.services.ollama_service import generate_response

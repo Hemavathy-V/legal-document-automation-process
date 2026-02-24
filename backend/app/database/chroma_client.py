@@ -1,3 +1,6 @@
+"""
+ChromaDB client initialisation.
+"""
 import chromadb
 from backend.app.core.config import CHROMA_PERSIST_DIR
 

@@ -1,3 +1,6 @@
+"""
+Clause-related API routes.
+"""
 from fastapi import APIRouter
 from pydantic import BaseModel
 from app.services.rag_service import generate_legal_document

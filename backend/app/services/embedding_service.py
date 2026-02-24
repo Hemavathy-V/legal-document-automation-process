@@ -1,3 +1,6 @@
+"""
+Text embedding generation service.
+"""
 import ollama
 
 MODEL = "nomic-embed-text"

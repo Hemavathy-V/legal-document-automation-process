@@ -16,6 +16,7 @@ requests
 chromadb
 ollama
 python-jose[cryptography]
+bcrypt
 passlib[bcrypt]
 pydantic
 python-json-logger

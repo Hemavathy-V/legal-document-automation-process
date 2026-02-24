@@ -1,78 +1,117 @@
 /**
- * App shell: shows Login page or (user info + dashboard pages).
+ * App shell: login gate + role-based dashboard with tab navigation.
+ *
+ * Role → visible tabs
+ *   Admin            : Contracts | Templates | Users
+ *   Lawyer           : Contracts | Templates
+ *   Assistant Lawyer : Contracts | Templates
+ *   Client           : Contracts
  */
 import React, { useState } from "react";
 import LoginPage from "./pages/login/LoginPage.jsx";
 import ContractGenerationPage from "./pages/ContractGenerationPage.jsx";
 import ContractsPage from "./pages/contracts/ContractsPage.jsx";
 import TemplatesPage from "./pages/templates/TemplatesPage.jsx";
+import UsersPage from "./pages/admin/UsersPage.jsx";
+
+const ROLE_TABS = {
+  Admin: ["contracts", "templates", "users"],
+  Lawyer: ["contracts", "templates"],
+  "Assistant Lawyer": ["contracts", "templates"],
+  Client: ["contracts"],
+};
+
+const TAB_LABELS = {
+  contracts: "Contracts",
+  templates: "Templates",
+  users: "Users",
+};
+
+const SESSION_KEY = "lca_session";
+
+function loadSession() {
+  try {
+    const raw = localStorage.getItem(SESSION_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState("");
-  const [activePage, setActivePage] = useState("generate");
+  const saved = loadSession();
+  const [user, setUser] = useState(saved?.user ?? null);
+  const [token, setToken] = useState(saved?.token ?? "");
+  const [activeTab, setActiveTab] = useState("contracts");
 
   const handleLoginSuccess = (result) => {
     setUser(result.user);
     setToken(result.access_token);
+    setActiveTab("contracts");
+    localStorage.setItem(
+      SESSION_KEY,
+      JSON.stringify({ user: result.user, token: result.access_token })
+    );
   };
 
   const handleLogout = () => {
     setUser(null);
     setToken("");
-    setActivePage("generate");
+    setActiveTab("contracts");
+    localStorage.removeItem(SESSION_KEY);
   };
 
-  return (
-    <div className="app-container">
-      <div className={`card ${!user ? "card--login" : ""}`}>
-        <h1>Legal Contract Management</h1>
-
-        {!user && <LoginPage onLoginSuccess={handleLoginSuccess} />}
-
-        {user && (
-          <>
-            <div className="user-info">
-              <div>
-                <strong>Logged in as:</strong> {user.user_name} ({user.email})
-              </div>
-              <div>
-                <strong>Role:</strong> {user.role}
-              </div>
-              <button onClick={handleLogout} className="btn btn-secondary" style={{ marginTop: '0.5rem' }}>
-                Logout
-              </button>
-            </div>
-
-            {/* Navigation */}
-            <div className="tabs">
-              <button
-                className={`tab-btn ${activePage === "generate" ? "tab-active" : ""}`}
-                onClick={() => setActivePage("generate")}
-              >
-                Generate Contract
-              </button>
-              <button
-                className={`tab-btn ${activePage === "contracts" ? "tab-active" : ""}`}
-                onClick={() => setActivePage("contracts")}
-              >
-                My Contracts
-              </button>
-              <button
-                className={`tab-btn ${activePage === "templates" ? "tab-active" : ""}`}
-                onClick={() => setActivePage("templates")}
-              >
-                Templates
-              </button>
-            </div>
-
-            {/* Pages */}
-            {activePage === "generate" && <ContractGenerationPage token={token} />}
-            {activePage === "contracts" && <ContractsPage token={token} />}
-            {activePage === "templates" && <TemplatesPage token={token} />}
-          </>
-        )}
+  if (!user) {
+    return (
+      <div className="app-container">
+        <div className="card card--login">
+          <h1>Legal Contract Management</h1>
+          <LoginPage onLoginSuccess={handleLoginSuccess} />
+        </div>
       </div>
+    );
+  }
+
+  const tabs = ROLE_TABS[user.role] ?? ["contracts"];
+
+  return (
+    <div className="dashboard">
+      {/* ── Top navigation bar ── */}
+      <header className="top-nav">
+        <span className="nav-brand">Legal Contract Management</span>
+        <div className="nav-user">
+          <span className="nav-user-name">{user.user_name}</span>
+          <span className={`role-badge role-badge--${user.role.toLowerCase().replace(/\s+/g, "-")}`}>
+            {user.role}
+          </span>
+          <button className="btn-logout" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
+      </header>
+
+      {/* ── Tab navigation ── */}
+      <nav className="tab-nav">
+        {tabs.map((tab) => (
+          <button
+            key={tab}
+            className={`tab-btn${activeTab === tab ? " tab-btn--active" : ""}`}
+            onClick={() => setActiveTab(tab)}
+          >
+            {TAB_LABELS[tab]}
+          </button>
+        ))}
+      </nav>
+
+      {/* ── Page content ── */}
+      <main className="dashboard-content">
+        {activeTab === "contracts" && <ContractsPage token={token} />}
+        {activeTab === "templates" && <TemplatesPage token={token} />}
+        {activeTab === "users" && user.role === "Admin" && (
+          <UsersPage token={token} currentUserId={user.user_id} />
+        )}
+      </main>
     </div>
   );
 }
