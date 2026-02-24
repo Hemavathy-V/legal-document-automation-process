@@ -13,7 +13,7 @@ from backend.app.schemas import (
     TokenResponse,
     UserResponse,
 )
-from backend.database.db_connection import get_connection
+from backend.app.database.db_connection import get_connection
 from backend.logger import get_logger
 
 logger = get_logger(__name__)

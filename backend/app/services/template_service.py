@@ -1,4 +1,4 @@
-from database.db_connection import get_connection
+from backend.app.database.db_connection import get_connection
 
 def fetch_templates():
     conn = get_connection()

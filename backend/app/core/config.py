@@ -1,3 +1,6 @@
+"""
+Application configuration and settings.
+"""
 import os
 
 CHROMA_COLLECTION_NAME = "clause_library"

@@ -23,7 +23,7 @@ if str(_PROJECT_ROOT) not in sys.path:
 load_dotenv(_PROJECT_ROOT / ".env", override=True)
 
 from backend.logger import get_logger  # noqa: E402 – after sys.path is ready
-from backend.database.db_connection import get_connection  # noqa: E402
+from backend.app.database.db_connection import get_connection  # noqa: E402
 
 logger = get_logger(__name__)
 

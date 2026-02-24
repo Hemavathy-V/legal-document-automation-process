@@ -1,6 +1,6 @@
 from pathlib import Path
 from datetime import datetime
-from backend.app.collect_inputs.dynamic_questions import ContractProcessor
+from backend.app.scripts.dynamic_questions import ContractProcessor
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = BASE_DIR.parent
