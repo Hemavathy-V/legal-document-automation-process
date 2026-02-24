@@ -1,8 +1,8 @@
-from app.services.embedding_service import generate_embedding
-from app.services.clause_service import search_clauses
-from app.services.ollama_service import generate_response
+from backend.app.services.embedding_service import get_embedding
+from backend.app.services.clause_service import search_clauses
+from backend.app.services.ollama_service import generate_response
 from backend.app.prompts.prompt_template import build_prompt
-from app.core.logger import get_logger
+from backend.app.core.logger import get_logger
 
 logger = get_logger(__name__)
 
@@ -13,7 +13,7 @@ def generate_legal_document(query: str):
 
         # ---------------- EMBEDDING ----------------
         logger.info("embedding_started")
-        emb = generate_embedding(query)
+        emb = get_embedding(query)
 
         # ---------------- RETRIEVAL ----------------
         logger.info("retrieval_started")

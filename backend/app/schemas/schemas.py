@@ -1,7 +1,7 @@
 """
 Shared request/response schemas used across login, contracts, and templates.
 """
-from typing import List, Optional
+from typing import Optional
 
 from pydantic import BaseModel, EmailStr, field_validator
 
