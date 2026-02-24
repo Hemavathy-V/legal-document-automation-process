@@ -4,8 +4,12 @@
 import React, { useState } from "react";
 import { login } from "../../api/login.js";
 
+const LAST_EMAIL_KEY = "lca_last_email";
+
 function LoginPage({ onLoginSuccess }) {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(
+    () => localStorage.getItem(LAST_EMAIL_KEY) ?? ""
+  );
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -16,6 +20,7 @@ function LoginPage({ onLoginSuccess }) {
     setLoading(true);
     try {
       const result = await login(email, password);
+      localStorage.setItem(LAST_EMAIL_KEY, email);
       onLoginSuccess(result);
     } catch (err) {
       setError(err.message || "Login failed");
@@ -32,7 +37,7 @@ function LoginPage({ onLoginSuccess }) {
         <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value.toLowerCase())}
           placeholder="you@example.com"
           required
         />

@@ -1,17 +1,21 @@
 /**
- * Admin — Users page: list all users, create new users, delete users.
+ * Admin — Users page: list all users, create, edit, and delete users.
  */
 import React, { useEffect, useRef, useState } from "react";
-import { fetchUsers, createUser, deleteUser } from "../../api/users.js";
+import { fetchUsers, createUser, updateUser, deleteUser } from "../../api/users.js";
 
 const ROLES = ["Lawyer", "Assistant Lawyer", "Admin", "Client"];
 
-const EMPTY_FORM = { user_name: "", email: "", password: "", role: "Lawyer" };
+const EMPTY_FORM = { user_name: "", email: "", password: "", role: "" };
+
+const EMAIL_RE = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+const validateEmail = (email) => EMAIL_RE.test(email.trim());
 
 function UsersPage({ token, currentUserId }) {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [editingUser, setEditingUser] = useState(null);
   const [form, setForm] = useState(EMPTY_FORM);
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState("");
@@ -34,7 +38,10 @@ function UsersPage({ token, currentUserId }) {
   }, [token]);
 
   const handleChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const value = e.target.name === "email"
+      ? e.target.value.toLowerCase()
+      : e.target.value;
+    setForm((prev) => ({ ...prev, [e.target.name]: value }));
     setFormError("");
     setFormSuccess("");
   };
@@ -43,19 +50,63 @@ function UsersPage({ token, currentUserId }) {
     e.preventDefault();
     setFormError("");
     setFormSuccess("");
+
+    if (!validateEmail(form.email)) {
+      setFormError("Please enter a valid email address (e.g. user@example.com).");
+      return;
+    }
+
+    if (!editingUser && (!form.password || form.password.trim().length < 6)) {
+      setFormError("Password must be at least 6 characters.");
+      return;
+    }
+
+    if (!form.role || !form.role.trim()) {
+      setFormError("Please select a role.");
+      return;
+    }
+
     setSubmitting(true);
     try {
-      await createUser(form, token);
-      setFormSuccess(`User "${form.user_name}" created successfully.`);
-      setForm(EMPTY_FORM);
-      setShowForm(false);
-      hasFetched.current = false;
-      loadUsers();
+      if (editingUser) {
+        await updateUser(editingUser.user_id, form, token);
+        setFormSuccess(`User "${form.user_name}" updated successfully.`);
+        setEditingUser(null);
+        setForm(EMPTY_FORM);
+        hasFetched.current = false;
+        loadUsers();
+      } else {
+        await createUser(form, token);
+        setFormSuccess(`User "${form.user_name}" created successfully.`);
+        setForm(EMPTY_FORM);
+        setShowForm(false);
+        hasFetched.current = false;
+        loadUsers();
+      }
     } catch (err) {
-      setFormError(err.message || "Failed to create user.");
+      setFormError(err.message || "Failed to save user.");
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handleEdit = (u) => {
+    setEditingUser(u);
+    setForm({
+      user_name: u.user_name,
+      email: u.email,
+      password: "",
+      role: u.role,
+    });
+    setFormError("");
+    setFormSuccess("");
+  };
+
+  const cancelEdit = () => {
+    setEditingUser(null);
+    setForm(EMPTY_FORM);
+    setFormError("");
+    setFormSuccess("");
   };
 
   const handleDelete = async (u) => {
@@ -89,25 +140,28 @@ function UsersPage({ token, currentUserId }) {
     <section className="users-page">
       <div className="page-header">
         <h2>Users</h2>
-        <button
-          className="btn-action"
-          onClick={() => {
-            setShowForm((v) => !v);
-            setFormError("");
-            setFormSuccess("");
-            setForm(EMPTY_FORM);
-          }}
-        >
-          {showForm ? "Cancel" : "+ Add User"}
-        </button>
+        {!showForm && !editingUser && (
+          <button
+            className="btn-action"
+            onClick={() => {
+              setEditingUser(null);
+              setShowForm(true);
+              setFormError("");
+              setFormSuccess("");
+              setForm(EMPTY_FORM);
+            }}
+          >
+            + Add User
+          </button>
+        )}
       </div>
 
       {formSuccess && <p className="alert alert--success">{formSuccess}</p>}
-      {formError && !showForm && <p className="alert alert--error">{formError}</p>}
+      {formError && !showForm && !editingUser && <p className="alert alert--error">{formError}</p>}
 
-      {showForm && (
+      {(showForm || editingUser) && (
         <form className="create-user-form" onSubmit={handleSubmit}>
-          <h3>Create New User</h3>
+          <h3>{editingUser ? "Edit User" : "Create New User"}</h3>
           <div className="form-grid">
             <label className="field">
               <span>Full Name</span>
@@ -127,6 +181,11 @@ function UsersPage({ token, currentUserId }) {
                 type="email"
                 value={form.email}
                 onChange={handleChange}
+                onBlur={() => {
+                  if (form.email && !validateEmail(form.email)) {
+                    setFormError("Please enter a valid email address (e.g. user@example.com).");
+                  }
+                }}
                 placeholder="jane@company.com"
                 required
               />
@@ -138,14 +197,15 @@ function UsersPage({ token, currentUserId }) {
                 type="password"
                 value={form.password}
                 onChange={handleChange}
-                placeholder="Min 6 characters"
-                required
-                minLength={6}
+                placeholder={editingUser ? "Leave blank to keep current" : "Min 6 characters"}
+                required={!editingUser}
+                minLength={editingUser ? undefined : 6}
               />
             </label>
             <label className="field">
               <span>Role</span>
-              <select name="role" value={form.role} onChange={handleChange}>
+              <select name="role" value={form.role} onChange={handleChange} required>
+                <option value="">Select role</option>
                 {ROLES.map((r) => (
                   <option key={r} value={r}>
                     {r}
@@ -154,10 +214,24 @@ function UsersPage({ token, currentUserId }) {
               </select>
             </label>
           </div>
-          {formError && <p className="alert alert--error">{formError}</p>}
-          <button type="submit" className="btn-action" disabled={submitting}>
-            {submitting ? "Creating..." : "Create User"}
-          </button>
+          {formError && (showForm || editingUser) && <p className="alert alert--error">{formError}</p>}
+          <div className="form-actions">
+            <button type="submit" className="btn-action" disabled={submitting}>
+              {submitting
+                ? (editingUser ? "Updating…" : "Creating...")
+                : (editingUser ? "Update User" : "Create User")}
+            </button>
+            <button
+              type="button"
+              className="btn-cancel"
+              onClick={() => {
+                setShowForm(false);
+                cancelEdit();
+              }}
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       )}
 
@@ -185,17 +259,27 @@ function UsersPage({ token, currentUserId }) {
                     <span className={roleBadgeClass(u.role)}>{u.role}</span>
                   </td>
                   <td>
-                    {u.user_id !== currentUserId ? (
+                    <div className="row-actions">
                       <button
-                        className="btn-delete"
-                        onClick={() => handleDelete(u)}
-                        disabled={deletingId === u.user_id}
+                        type="button"
+                        className="btn-edit"
+                        onClick={() => handleEdit(u)}
+                        disabled={!!editingUser}
                       >
-                        {deletingId === u.user_id ? "Deleting…" : "Delete"}
+                        Edit
                       </button>
-                    ) : (
-                      <span className="self-label">You</span>
-                    )}
+                      {u.user_id !== currentUserId ? (
+                        <button
+                          className="btn-delete"
+                          onClick={() => handleDelete(u)}
+                          disabled={deletingId === u.user_id}
+                        >
+                          {deletingId === u.user_id ? "Deleting…" : "Delete"}
+                        </button>
+                      ) : (
+                        <span className="self-label">You</span>
+                      )}
+                    </div>
                   </td>
                 </tr>
               ))}

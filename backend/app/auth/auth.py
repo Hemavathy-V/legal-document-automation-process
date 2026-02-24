@@ -58,4 +58,3 @@ def decode_token(token: str) -> dict:
     except JWTError as exc:
         logger.error(f"Failed to decode token: {str(exc)}")
         raise ValueError("Invalid token") from exc
-

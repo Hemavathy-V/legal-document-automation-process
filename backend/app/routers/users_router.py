@@ -1,7 +1,8 @@
 """
-Users management: list and delete users.
+Users management: list, update, and delete users.
 Routes:
     GET    /api/users            (Admin only)
+    PATCH  /api/users/{user_id}  (Admin only)
     DELETE /api/users/{user_id}  (Admin only)
 """
 from typing import List
@@ -9,8 +10,9 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException, status
 from mysql.connector.errors import IntegrityError
 
+from backend.app.auth import get_password_hash
 from backend.app.deps import get_current_user
-from backend.app.schemas import UserResponse
+from backend.app.schemas import UserResponse, UserUpdateRequest
 from backend.database.db_connection import get_connection
 from backend.logger import get_logger
 
@@ -55,6 +57,91 @@ def list_users(current_user: UserResponse = Depends(get_current_user)):
         return users
     except Exception as e:
         logger.error(f"Error fetching users: {e}")
+        raise
+    finally:
+        cursor.close()
+        conn.close()
+
+
+@router.patch("/users/{user_id}", response_model=UserResponse)
+def update_user(
+    user_id: int,
+    body: UserUpdateRequest,
+    current_user: UserResponse = Depends(get_current_user),
+):
+    """Update a user by ID. Admin access only."""
+    _require_admin(current_user)
+
+    conn = get_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute(
+            "SELECT user_id, user_name, email FROM users WHERE user_id = %s",
+            (user_id,),
+        )
+        row = cursor.fetchone()
+        if not row:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"User {user_id} not found.",
+            )
+
+        # Check email uniqueness when changing to a different address
+        if body.email != row["email"]:
+            cursor.execute("SELECT user_id FROM users WHERE email = %s", (body.email,))
+            if cursor.fetchone():
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Email already registered",
+                )
+
+        cursor.execute(
+            """
+            SELECT lookup_id FROM look_up
+            WHERE lookup_type = 'user_role' AND lookup_value = %s
+            """,
+            (body.role,),
+        )
+        role_row = cursor.fetchone()
+        if not role_row:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Invalid role",
+            )
+
+        if body.password:
+            hashed = get_password_hash(body.password)
+            cursor.execute(
+                """
+                UPDATE users
+                SET user_name = %s, email = %s, password = %s, role_id = %s
+                WHERE user_id = %s
+                """,
+                (body.user_name, body.email, hashed, role_row["lookup_id"], user_id),
+            )
+        else:
+            cursor.execute(
+                """
+                UPDATE users
+                SET user_name = %s, email = %s, role_id = %s
+                WHERE user_id = %s
+                """,
+                (body.user_name, body.email, role_row["lookup_id"], user_id),
+            )
+        conn.commit()
+        logger.info(
+            f"Admin {current_user.email} updated user {user_id} ({body.user_name})"
+        )
+        return UserResponse(
+            user_id=user_id,
+            user_name=body.user_name,
+            email=body.email,
+            role=body.role,
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error updating user {user_id}: {e}")
         raise
     finally:
         cursor.close()

@@ -26,21 +26,39 @@ const TAB_LABELS = {
   users: "Users",
 };
 
+const SESSION_KEY = "lca_session";
+
+function loadSession() {
+  try {
+    const raw = localStorage.getItem(SESSION_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
 function App() {
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState("");
+  const saved = loadSession();
+  const [user, setUser] = useState(saved?.user ?? null);
+  const [token, setToken] = useState(saved?.token ?? "");
   const [activeTab, setActiveTab] = useState("contracts");
 
   const handleLoginSuccess = (result) => {
     setUser(result.user);
     setToken(result.access_token);
     setActiveTab("contracts");
+    localStorage.setItem(
+      SESSION_KEY,
+      JSON.stringify({ user: result.user, token: result.access_token })
+    );
   };
 
   const handleLogout = () => {
     setUser(null);
     setToken("");
     setActiveTab("contracts");
+    localStorage.removeItem(SESSION_KEY);
   };
 
   if (!user) {
