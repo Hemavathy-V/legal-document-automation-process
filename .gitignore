@@ -4,6 +4,9 @@ venv/
 
 # Environment secrets
 .env
+__pycache__/
+~$clause_lib.xlsx
+chroma_DB/
 
 # Compiled Python
 __pycache__/

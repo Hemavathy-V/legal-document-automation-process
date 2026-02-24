@@ -6,15 +6,15 @@ from typing import Optional
 
 from fastapi import APIRouter, HTTPException, status
 
-from backend.app.auth import create_access_token, get_password_hash, verify_password
-from backend.app.schemas import (
+from backend.app.auth.auth import create_access_token, get_password_hash, verify_password
+from backend.app.schemas.schemas import (
     LoginRequest,
     RegisterRequest,
     TokenResponse,
     UserResponse,
 )
-from backend.database.db_connection import get_connection
-from backend.logger import get_logger
+from backend.app.database.db_connection import get_connection
+from app.core.logger import get_logger
 
 logger = get_logger(__name__)
 

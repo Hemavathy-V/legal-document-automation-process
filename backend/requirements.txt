@@ -1,5 +1,11 @@
 mysql-connector-python
 python-docx
+fastapi
+uvicorn
+pandas
+openpyxl
+requests
+chromadb
 python-dotenv
 fastapi
 uvicorn
@@ -11,3 +17,6 @@ chromadb
 ollama
 python-jose[cryptography]
 bcrypt
+passlib[bcrypt]
+pydantic
+python-json-logger

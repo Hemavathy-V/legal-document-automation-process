@@ -4,7 +4,8 @@ import os
 
 import bcrypt
 from jose import JWTError, jwt
-from backend.logger import get_logger
+from passlib.context import CryptContext
+from app.core.logger import get_logger
 
 logger = get_logger(__name__)
 

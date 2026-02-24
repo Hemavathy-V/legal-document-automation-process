@@ -9,6 +9,7 @@
  */
 import React, { useState } from "react";
 import LoginPage from "./pages/login/LoginPage.jsx";
+import ContractGenerationPage from "./pages/ContractGenerationPage.jsx";
 import ContractsPage from "./pages/contracts/ContractsPage.jsx";
 import TemplatesPage from "./pages/templates/TemplatesPage.jsx";
 import UsersPage from "./pages/admin/UsersPage.jsx";
