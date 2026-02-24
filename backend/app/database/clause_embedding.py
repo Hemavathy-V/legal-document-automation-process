@@ -1,9 +1,9 @@
 import pandas as pd
-from app.database.clause_collection import get_clause_collection
-from app.services.embedding_service import generate_embedding
+from backend.app.database.clause_collection import get_clause_collection
+from backend.app.services.embedding_service import get_embedding
 
 def store_clauses():
-    df = pd.read_excel(r"D:\legal-document-automation\legal-document-automation-process\backend\clause_lib.xlsx")
+    df = pd.read_excel(r"D:\legal-document-automation\legal-document-automation-process\backend\app\data\clause_lib.xlsx")
 
     df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
 
@@ -12,7 +12,7 @@ def store_clauses():
     for index, row in df.iterrows():
         clause_text = row["clause_text"] 
 
-        embedding = generate_embedding(clause_text)
+        embedding = get_embedding(clause_text)
         
         collection.add(
             ids=[str(index)],

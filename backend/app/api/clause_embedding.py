@@ -1,6 +1,6 @@
 import pandas as pd
-from app.services.embedding_service import get_embedding
-from app.database.chroma_db import collection
+from backend.app.services.embedding_service import get_embedding
+from backend.app.database.chroma_db import collection
 
 print("File loaded successfully")
 

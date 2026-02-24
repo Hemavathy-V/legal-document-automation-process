@@ -2,15 +2,15 @@
 Legal Contract Management API.
 Routes are grouped by feature: login, contracts, templates, users.
 """
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import time
 
 from backend.app.routers import contracts_router, login_router, templates_router, users_router
-from backend.logger import get_logger
+from backend.app.core.logger import get_logger
 
-from app.api.clause_routes import router as clause_router
-from app.routers import contracts_router, login_router, templates_router
+from backend.app.api.clause_routes import router as clause_router
+from backend.app.core.log_config import setup_logging
 
 # Setup logging
 setup_logging()
@@ -21,7 +21,7 @@ app = FastAPI(
     title="Legal Document Automation API",
     version="1.0.0"
 )
-
+logger = get_logger("api")
 logger.info("Initializing API")
 
 # Middleware

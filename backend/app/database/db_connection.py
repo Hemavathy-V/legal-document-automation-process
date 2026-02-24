@@ -7,7 +7,7 @@ import os
 import mysql.connector
 from dotenv import load_dotenv
 
-from backend.logger import get_logger
+from backend.app.core.logger import get_logger
 
 logger = get_logger(__name__)
 

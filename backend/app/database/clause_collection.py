@@ -1,5 +1,5 @@
-from app.database.chroma_client import get_chroma_client
-from app.config import CHROMA_COLLECTION_NAME
+from backend.app.database.chroma_client import get_chroma_client
+from backend.app.core.config import CHROMA_COLLECTION_NAME
 
 COLLECTION_NAME = "clause_library"
 
