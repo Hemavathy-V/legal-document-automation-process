@@ -6,8 +6,8 @@ from typing import List
 
 from fastapi import APIRouter, Depends
 
-from backend.app.api.deps import get_current_user
-from app.schemas import TemplateResponse, UserResponse
+from backend.app.deps.deps import get_current_user
+from backend.app.schemas.schemas import TemplateResponse, UserResponse
 from backend.app.database.db_connection import get_connection
 from app.core.logger import get_logger
 

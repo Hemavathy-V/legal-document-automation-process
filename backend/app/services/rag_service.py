@@ -1,7 +1,7 @@
 from app.services.embedding_service import generate_embedding
 from app.services.clause_service import search_clauses
 from app.services.ollama_service import generate_response
-from app.utils.prompt_template import build_prompt
+from backend.app.prompt.prompt_template import build_prompt
 from app.core.logger import get_logger
 
 logger = get_logger(__name__)

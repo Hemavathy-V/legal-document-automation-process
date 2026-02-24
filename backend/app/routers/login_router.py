@@ -6,8 +6,8 @@ from typing import Optional
 
 from fastapi import APIRouter, HTTPException, status
 
-from backend.app.api.auth import create_access_token
-from app.schemas import (
+from backend.app.auth.auth import create_access_token
+from backend.app.schemas.schemas import (
     LoginRequest,
     RegisterRequest,
     TokenResponse,

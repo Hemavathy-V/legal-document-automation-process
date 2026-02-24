@@ -11,9 +11,9 @@ from typing import Any, Dict
 
 from fastapi import APIRouter, HTTPException, status
 
-from app.collect_inputs.dynamic_questions import ContractProcessor
+from backend.app.scripts.dynamic_questions import ContractProcessor
 from app.core.logger import get_logger
-from app.schemas import (
+from backend.app.schemas.schemas import (
     ContractDataRequest,
     ContractDataResponse,
     TemplatePlaceholdersResponse,
