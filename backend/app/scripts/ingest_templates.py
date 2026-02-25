@@ -4,19 +4,12 @@ import re
 import sys
 from pathlib import Path
 
-from dotenv import load_dotenv
 import mysql.connector
 from docx import Document
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[2]
-
-if str(_PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(_PROJECT_ROOT))
-
-load_dotenv(_PROJECT_ROOT / ".env", override=True)
-
-from backend.app.core.logger import get_logger  # noqa: E402 – after sys.path is ready
-from backend.app.database.db_connection import get_connection  # noqa: E402
+# Add backend to path for logger import
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+from backend.app.core.logger import get_logger
 
 logger = get_logger(__name__)
 

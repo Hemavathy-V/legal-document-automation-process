@@ -12,7 +12,7 @@ from typing import Any, Dict
 from fastapi import APIRouter, HTTPException, status
 
 from backend.app.scripts.dynamic_questions import ContractProcessor
-from app.core.logger import get_logger
+from backend.app.core.logger import get_logger
 from backend.app.schemas.schemas import (
     ContractDataRequest,
     ContractDataResponse,
