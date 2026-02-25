@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(_PROJECT_ROOT / ".env", override=True)
 
-from backend.logger import get_logger  # noqa: E402 – after sys.path is set
+from backend.app.core.logger import get_logger  # noqa: E402 – after sys.path is set
 
 logger = get_logger(__name__)
 

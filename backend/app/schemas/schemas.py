@@ -70,3 +70,30 @@ class TemplateResponse(BaseModel):
     template_name: str
     template_type: str
     file_path: str
+
+
+# --- Dynamic Contract Generation ---
+class TemplatePlaceholdersResponse(BaseModel):
+    """Response containing placeholders needed to fill a template"""
+    template_name: str
+    simple_fields: List[str]
+    loop_fields: Dict[str, List[str]]
+
+
+class ContractDataRequest(BaseModel):
+    """Request payload with user-provided contract data"""
+    template_name: str
+    data: Dict[str, Any]
+
+
+class ContractDataResponse(BaseModel):
+    """Response after saving contract data"""
+    message: str
+    template_name: str
+    file_path: str
+    total_fields: int
+
+
+class TemplateNamesResponse(BaseModel):
+    """Response with available template names from DOCX files"""
+    templates: List[str]
