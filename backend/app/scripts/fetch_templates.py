@@ -7,7 +7,7 @@ import sys
 
 # Add backend to path for logger import
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..'))
-from backend.logger import get_logger
+from app.core.logger import get_logger
 
 logger = get_logger(__name__)
 
@@ -20,6 +20,11 @@ MYSQL_PORT = int(os.getenv('MYSQL_PORT', 3306))
 MYSQL_USER = os.getenv('MYSQL_USER')
 MYSQL_PASSWORD = os.getenv('MYSQL_PASSWORD')
 MYSQL_DB = os.getenv('MYSQL_DB')
+
+logger.debug(
+    f"MySQL configuration loaded | host={MYSQL_HOST} | port={MYSQL_PORT} | "
+    f"user_set={bool(MYSQL_USER)} | db_set={bool(MYSQL_DB)}"
+)
 
 # Define output folder path
 OUTPUT_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..', 'output')
@@ -35,6 +40,9 @@ def fetch_templates_from_db():
     logger.debug(f"Output folder: {OUTPUT_FOLDER}")
     logger.debug(f"Project root: {PROJECT_ROOT}")
     
+    connection = None
+    cursor = None
+
     try:
         # Create output folder if it doesn't exist
         Path(OUTPUT_FOLDER).mkdir(parents=True, exist_ok=True)
@@ -61,8 +69,6 @@ def fetch_templates_from_db():
         
         if not templates:
             logger.warning("No templates found in database")
-            cursor.close()
-            connection.close()
             return
         
         logger.info(f"Found {len(templates)} templates in database")
@@ -94,16 +100,21 @@ def fetch_templates_from_db():
             except Exception as e:
                 logger.error(f"Template {template_id} ({template_name}): Error copying file - {str(e)}")
         
-        cursor.close()
-        connection.close()
         logger.info(f"Template fetch operation completed. Templates saved to: {OUTPUT_FOLDER}")
         
     except mysql.connector.Error as err:
-        logger.error(f"Database connection error: {err}")
+        logger.error(f"Database connection error: {err}", exc_info=True)
         raise
     except Exception as e:
-        logger.error(f"Unexpected error in template fetch: {str(e)}")
+        logger.error(f"Unexpected error in template fetch: {str(e)}", exc_info=True)
         raise
+    finally:
+        if cursor:
+            cursor.close()
+            logger.debug("Database cursor closed")
+        if connection and connection.is_connected():
+            connection.close()
+            logger.debug("Database connection closed")
 
 
 if __name__ == "__main__":

@@ -1,3 +1,6 @@
+"""
+Business logic for clause operations.
+"""
 from app.database.clause_collection import get_clause_collection
 
 collection = get_clause_collection()

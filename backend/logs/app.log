@@ -1,1 +1,628 @@
 {"asctime": "2026-02-20 18:31:13,127", "levelname": "INFO", "name": "api", "message": "api_request", "method": "GET", "url": "http://127.0.0.1:8000/", "status": 200, "duration": 0.002}
+2026-02-23 13:12:53 - urllib3.connectionpool - DEBUG - [connectionpool.py:1049] - _new_conn() - Starting new HTTPS connection (1): us.i.posthog.com:443
+2026-02-23 13:12:54 - urllib3.connectionpool - DEBUG - [connectionpool.py:544] - _make_request() - https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+{"asctime": "2026-02-23 13:30:01,402", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:30:01,403", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:30:01,406", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:30:01,409", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:30:01,411", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:30:01,413", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:30:17,017", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:30:17,018", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:30:17,020", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:30:17,022", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:30:17,023", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:30:17,026", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:30:35,243", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:30:35,243", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:30:35,246", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:30:35,247", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:30:35,248", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:30:35,250", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:30:52,944", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /docs - 200 (0.001s)"}
+{"asctime": "2026-02-23 13:30:53,145", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /openapi.json - 200 (0.029s)"}
+{"asctime": "2026-02-23 13:31:19,791", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 401 (0.002s)"}
+{"asctime": "2026-02-23 13:31:35,550", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:31:35,550", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:31:35,554", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:31:35,555", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:31:35,557", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:31:35,559", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:31:38,565", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 401 (0.003s)"}
+{"asctime": "2026-02-23 13:36:18,966", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:36:18,968", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:36:18,972", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:36:18,976", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:36:18,978", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:36:18,982", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:36:23,089", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:36:23,093", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:36:23,097", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:36:23,099", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:36:23,101", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:36:23,103", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:36:33,615", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:36:33,616", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:36:33,618", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:36:33,620", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:36:33,622", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:36:33,624", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:36:37,818", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:36:37,819", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:36:37,822", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:36:37,824", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:36:37,826", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:36:37,827", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:36:42,281", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:36:42,282", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:36:42,289", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:36:42,291", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:36:42,293", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:36:42,297", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 13:36:42,299", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:36:46,631", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:36:46,631", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:36:46,634", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:36:46,636", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:36:46,638", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:36:46,641", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 13:36:46,643", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:36:50,994", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:36:50,994", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:36:50,998", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:36:50,999", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:36:51,001", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:36:51,004", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 13:36:51,005", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:37:26,065", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:37:26,066", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:37:26,070", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:37:26,071", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:37:26,073", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:37:26,076", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 13:37:26,078", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:37:36,110", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:37:36,111", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:37:36,115", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:37:36,116", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:37:36,118", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:37:36,120", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 13:37:36,122", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:37:45,010", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /docs - 200 (0.001s)"}
+{"asctime": "2026-02-23 13:37:45,212", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /openapi.json - 200 (0.036s)"}
+{"asctime": "2026-02-23 13:38:13,450", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: List available template names"}
+{"asctime": "2026-02-23 13:38:13,452", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Retrieved 5 template names: ['Master-Service-Agreement-Template', 'Non-Disclosure-Agreement-Template', 'Service-Agreement-Template', 'Statement-Of-Work-Template', 'Termination-Agreement-Template']"}
+{"asctime": "2026-02-23 13:38:13,455", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/names - 200 (0.009s)"}
+{"asctime": "2026-02-23 13:38:27,403", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:38:27,404", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:38:27,409", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:38:27,409", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:38:27,411", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:38:27,416", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 13:38:27,418", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:38:40,568", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Non-Disclosure-Agreement-Template'"}
+{"asctime": "2026-02-23 13:38:40,569", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Non-Disclosure-Agreement-Template"}
+{"asctime": "2026-02-23 13:38:40,577", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Template parsed: Non-Disclosure-Agreement-Template.docx | simple_placeholders=9 | loop_placeholders=1"}
+{"asctime": "2026-02-23 13:38:40,578", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Placeholders extracted successfully for template: Non-Disclosure-Agreement-Template"}
+{"asctime": "2026-02-23 13:38:40,578", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Placeholders retrieved for 'Non-Disclosure-Agreement-Template': simple=9, loops=1"}
+{"asctime": "2026-02-23 13:38:40,581", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure-Agreement-Template/placeholders - 200 (0.017s)"}
+{"asctime": "2026-02-23 13:39:24,950", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:39:24,951", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:39:24,953", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:39:24,955", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:39:24,956", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:39:24,959", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 13:39:24,960", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:39:59,090", "levelname": "INFO", "name": "app.main", "message": "HTTP POST /api/contracts/data - 422 (0.009s)"}
+{"asctime": "2026-02-23 13:46:44,935", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Save contract data for template 'NDA'"}
+{"asctime": "2026-02-23 13:46:44,937", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Saving contract data for template: NDA"}
+{"asctime": "2026-02-23 13:46:44,940", "levelname": "WARNING", "name": "app.collect_inputs.dynamic_questions", "message": "Template not found: NDA.docx in D:\\OneDrive - Lowcode Minds Technology Pvt Ltd\\Desktop\\automate_contract_creation\\legal-document-automation-process\\sample_templates"}
+{"asctime": "2026-02-23 13:46:44,941", "levelname": "ERROR", "name": "app.collect_inputs.dynamic_questions", "message": "Cannot save contract data. Template not found: NDA"}
+{"asctime": "2026-02-23 13:46:44,942", "levelname": "WARNING", "name": "app.routers.generator_router", "message": "Template not found while saving data: NDA"}
+{"asctime": "2026-02-23 13:46:44,945", "levelname": "INFO", "name": "app.main", "message": "HTTP POST /api/contracts/data - 404 (0.013s)"}
+{"asctime": "2026-02-23 13:47:05,022", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /docs - 200 (0.002s)"}
+{"asctime": "2026-02-23 13:47:05,236", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /openapi.json - 200 (0.037s)"}
+{"asctime": "2026-02-23 13:47:15,517", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: List available template names"}
+{"asctime": "2026-02-23 13:47:15,519", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Retrieved 5 template names: ['Master-Service-Agreement-Template', 'Non-Disclosure-Agreement-Template', 'Service-Agreement-Template', 'Statement-Of-Work-Template', 'Termination-Agreement-Template']"}
+{"asctime": "2026-02-23 13:47:15,522", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/names - 200 (0.006s)"}
+{"asctime": "2026-02-23 13:47:41,414", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Non-Disclosure-Agreement-Template'"}
+{"asctime": "2026-02-23 13:47:41,415", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Non-Disclosure-Agreement-Template"}
+{"asctime": "2026-02-23 13:47:41,429", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Template parsed: Non-Disclosure-Agreement-Template.docx | simple_placeholders=9 | loop_placeholders=1"}
+{"asctime": "2026-02-23 13:47:41,430", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Placeholders extracted successfully for template: Non-Disclosure-Agreement-Template"}
+{"asctime": "2026-02-23 13:47:41,432", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Placeholders retrieved for 'Non-Disclosure-Agreement-Template': simple=9, loops=1"}
+{"asctime": "2026-02-23 13:47:41,435", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure-Agreement-Template/placeholders - 200 (0.023s)"}
+{"asctime": "2026-02-23 13:48:08,537", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Save contract data for template 'Non-Disclosure-Agreement-Template'"}
+{"asctime": "2026-02-23 13:48:08,537", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Saving contract data for template: Non-Disclosure-Agreement-Template"}
+{"asctime": "2026-02-23 13:48:08,540", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Contract data saved: D:\\OneDrive - Lowcode Minds Technology Pvt Ltd\\Desktop\\automate_contract_creation\\legal-document-automation-process\\backend\\output\\Non-Disclosure-Agreement-Template_20260223_134808.json | fields_count=10"}
+{"asctime": "2026-02-23 13:48:08,541", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Contract data saved successfully | template=Non-Disclosure-Agreement-Template | path=D:\\OneDrive - Lowcode Minds Technology Pvt Ltd\\Desktop\\automate_contract_creation\\legal-document-automation-process\\backend\\output\\Non-Disclosure-Agreement-Template_20260223_134808.json | fields=10"}
+{"asctime": "2026-02-23 13:48:08,543", "levelname": "INFO", "name": "app.main", "message": "HTTP POST /api/contracts/data - 200 (0.007s)"}
+{"asctime": "2026-02-23 13:50:18,354", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:50:18,355", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:50:18,359", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:50:18,360", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:50:18,362", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:50:18,366", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 13:50:18,367", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:50:22,346", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:50:22,347", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:50:22,351", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:50:22,353", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:50:22,355", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:50:22,358", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 13:50:22,360", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:50:26,362", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:50:26,363", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:50:26,366", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:50:26,367", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:50:26,370", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:50:26,374", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 13:50:26,376", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 13:52:19,496", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 13:52:19,497", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 13:52:19,500", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 13:52:19,502", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 13:52:19,504", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 13:52:19,509", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 13:52:19,511", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 14:05:40,474", "levelname": "INFO", "name": "app.routers.login_router", "message": "Login attempt for email: arun.kumar@company.com"}
+{"asctime": "2026-02-23 14:05:40,482", "levelname": "ERROR", "name": "database.db_connection", "message": "Failed to connect to database: 2017 (HY000): Can't open named pipe to host: .  pipe: MySQL (2)"}
+{"asctime": "2026-02-23 14:11:18,223", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 14:11:18,223", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 14:11:18,229", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 14:11:18,231", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 14:11:18,233", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 14:11:18,236", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 14:11:18,238", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 14:11:29,337", "levelname": "INFO", "name": "app.routers.login_router", "message": "Login attempt for email: arun.kumar@company.com"}
+{"asctime": "2026-02-23 14:11:29,419", "levelname": "INFO", "name": "app.auth", "message": "Access token created successfully for user: arun.kumar@company.com"}
+{"asctime": "2026-02-23 14:11:29,421", "levelname": "INFO", "name": "app.routers.login_router", "message": "User logged in successfully: Arun Kumar (ID: 1)"}
+{"asctime": "2026-02-23 14:11:29,423", "levelname": "INFO", "name": "app.main", "message": "HTTP POST /api/login - 200 (0.092s)"}
+{"asctime": "2026-02-23 14:11:45,298", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:11:45,299", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "User Arun Kumar (ID: 1) requested contracts list"}
+{"asctime": "2026-02-23 14:11:45,312", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "Retrieved 5 contracts from database"}
+{"asctime": "2026-02-23 14:11:45,314", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 200 (0.028s)"}
+{"asctime": "2026-02-23 14:11:49,146", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:11:49,147", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:11:49,161", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:11:49,163", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.069s)"}
+{"asctime": "2026-02-23 14:18:01,564", "levelname": "ERROR", "name": "app.auth", "message": "Failed to decode token: Not enough segments"}
+{"asctime": "2026-02-23 14:18:01,567", "levelname": "ERROR", "name": "app.deps", "message": "Token validation failed: Invalid token"}
+{"asctime": "2026-02-23 14:18:01,571", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 401 (0.01s)"}
+{"asctime": "2026-02-23 14:18:35,550", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:18:35,553", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:18:35,579", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:18:35,584", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.107s)"}
+{"asctime": "2026-02-23 14:22:26,413", "levelname": "INFO", "name": "app.routers.login_router", "message": "Login attempt for email: arun.kumar@company.com"}
+{"asctime": "2026-02-23 14:22:26,437", "levelname": "INFO", "name": "app.auth", "message": "Access token created successfully for user: arun.kumar@company.com"}
+{"asctime": "2026-02-23 14:22:26,440", "levelname": "INFO", "name": "app.routers.login_router", "message": "User logged in successfully: Arun Kumar (ID: 1)"}
+{"asctime": "2026-02-23 14:22:26,445", "levelname": "INFO", "name": "app.main", "message": "HTTP POST /api/login - 200 (0.035s)"}
+{"asctime": "2026-02-23 14:22:26,601", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:22:26,607", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:22:26,650", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:22:26,672", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.115s)"}
+{"asctime": "2026-02-23 14:22:26,832", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:22:26,839", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:22:26,872", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:22:26,877", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.091s)"}
+{"asctime": "2026-02-23 14:22:33,382", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 14:22:33,388", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:22:33,395", "levelname": "WARNING", "name": "app.collect_inputs.dynamic_questions", "message": "Template not found: Non-Disclosure Agreement Template.docx in D:\\OneDrive - Lowcode Minds Technology Pvt Ltd\\Desktop\\automate_contract_creation\\legal-document-automation-process\\sample_templates"}
+{"asctime": "2026-02-23 14:22:33,399", "levelname": "ERROR", "name": "app.collect_inputs.dynamic_questions", "message": "Cannot fetch placeholders. Template not found: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:22:33,404", "levelname": "WARNING", "name": "app.routers.generator_router", "message": "Template not found: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:22:33,410", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/placeholders - 404 (0.035s)"}
+{"asctime": "2026-02-23 14:25:31,905", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Service Agreement Template'"}
+{"asctime": "2026-02-23 14:25:31,909", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Service Agreement Template"}
+{"asctime": "2026-02-23 14:25:31,915", "levelname": "WARNING", "name": "app.collect_inputs.dynamic_questions", "message": "Template not found: Service Agreement Template.docx in D:\\OneDrive - Lowcode Minds Technology Pvt Ltd\\Desktop\\automate_contract_creation\\legal-document-automation-process\\sample_templates"}
+{"asctime": "2026-02-23 14:25:31,921", "levelname": "ERROR", "name": "app.collect_inputs.dynamic_questions", "message": "Cannot fetch placeholders. Template not found: Service Agreement Template"}
+{"asctime": "2026-02-23 14:25:31,927", "levelname": "WARNING", "name": "app.routers.generator_router", "message": "Template not found: Service Agreement Template"}
+{"asctime": "2026-02-23 14:25:31,934", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Service Agreement Template/placeholders - 404 (0.034s)"}
+{"asctime": "2026-02-23 14:25:43,263", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:25:43,270", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "User Arun Kumar (ID: 1) requested contracts list"}
+{"asctime": "2026-02-23 14:25:43,359", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "Retrieved 5 contracts from database"}
+{"asctime": "2026-02-23 14:25:43,364", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 200 (0.142s)"}
+{"asctime": "2026-02-23 14:25:47,065", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:25:47,072", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:25:47,153", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:25:47,161", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.129s)"}
+{"asctime": "2026-02-23 14:25:58,473", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:25:58,479", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:25:58,519", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:25:58,528", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.099s)"}
+{"asctime": "2026-02-23 14:25:58,631", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:25:58,639", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:25:58,693", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:25:58,700", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.12s)"}
+{"asctime": "2026-02-23 14:26:04,290", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 14:26:04,294", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:26:04,303", "levelname": "WARNING", "name": "app.collect_inputs.dynamic_questions", "message": "Template not found: Non-Disclosure Agreement Template.docx in D:\\OneDrive - Lowcode Minds Technology Pvt Ltd\\Desktop\\automate_contract_creation\\legal-document-automation-process\\sample_templates"}
+{"asctime": "2026-02-23 14:26:04,312", "levelname": "ERROR", "name": "app.collect_inputs.dynamic_questions", "message": "Cannot fetch placeholders. Template not found: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:26:04,321", "levelname": "WARNING", "name": "app.routers.generator_router", "message": "Template not found: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:26:04,331", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/placeholders - 404 (0.045s)"}
+{"asctime": "2026-02-23 14:27:25,452", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:27:25,457", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:27:25,492", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:27:25,504", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.081s)"}
+{"asctime": "2026-02-23 14:29:54,422", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:29:54,429", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:29:54,472", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:29:54,486", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.102s)"}
+{"asctime": "2026-02-23 14:29:54,683", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:29:54,693", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:29:54,750", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:29:54,762", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.211s)"}
+{"asctime": "2026-02-23 14:29:56,853", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:29:56,857", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:29:56,886", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:29:56,897", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.078s)"}
+{"asctime": "2026-02-23 14:30:04,728", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:30:04,737", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "User Arun Kumar (ID: 1) requested contracts list"}
+{"asctime": "2026-02-23 14:30:04,810", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "Retrieved 5 contracts from database"}
+{"asctime": "2026-02-23 14:30:04,821", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 200 (0.127s)"}
+{"asctime": "2026-02-23 14:30:07,964", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:30:07,971", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:30:08,012", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:30:08,022", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.091s)"}
+{"asctime": "2026-02-23 14:30:19,138", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:30:19,143", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:30:19,173", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:30:19,183", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.08s)"}
+{"asctime": "2026-02-23 14:30:19,349", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:30:19,362", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:30:19,404", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:30:19,415", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.11s)"}
+{"asctime": "2026-02-23 14:30:23,421", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 14:30:23,471", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:30:23,494", "levelname": "WARNING", "name": "app.collect_inputs.dynamic_questions", "message": "Template not found: Non-Disclosure Agreement Template.docx in D:\\OneDrive - Lowcode Minds Technology Pvt Ltd\\Desktop\\automate_contract_creation\\legal-document-automation-process\\sample_templates"}
+{"asctime": "2026-02-23 14:30:23,603", "levelname": "ERROR", "name": "app.collect_inputs.dynamic_questions", "message": "Cannot fetch placeholders. Template not found: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:30:23,624", "levelname": "WARNING", "name": "app.routers.generator_router", "message": "Template not found: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:30:23,654", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/placeholders - 404 (0.237s)"}
+{"asctime": "2026-02-23 14:30:54,805", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 401 (0.001s)"}
+{"asctime": "2026-02-23 14:33:01,502", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 14:33:01,504", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 14:33:01,513", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 14:33:01,516", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 14:33:01,521", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 14:33:01,529", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 14:33:01,531", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 14:33:08,439", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 14:33:08,440", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 14:33:08,496", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 14:33:08,500", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 14:33:08,507", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 14:33:08,515", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 14:33:08,521", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 14:33:30,716", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 14:33:30,717", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 14:33:30,725", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 14:33:30,728", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 14:33:30,732", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 14:33:30,740", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 14:33:30,744", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 14:33:55,259", "levelname": "INFO", "name": "app.routers.login_router", "message": "Login attempt for email: arun.kumar@company.com"}
+{"asctime": "2026-02-23 14:33:55,366", "levelname": "INFO", "name": "app.auth", "message": "Access token created successfully for user: arun.kumar@company.com"}
+{"asctime": "2026-02-23 14:33:55,369", "levelname": "INFO", "name": "app.routers.login_router", "message": "User logged in successfully: Arun Kumar (ID: 1)"}
+{"asctime": "2026-02-23 14:33:55,374", "levelname": "INFO", "name": "app.main", "message": "HTTP POST /api/login - 200 (0.125s)"}
+{"asctime": "2026-02-23 14:33:55,557", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:33:55,562", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:33:55,601", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:33:55,612", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.1s)"}
+{"asctime": "2026-02-23 14:33:55,737", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:33:55,742", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:33:55,778", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:33:55,788", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.086s)"}
+{"asctime": "2026-02-23 14:34:00,135", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 14:34:00,137", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:34:00,441", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Template parsed: Non-Disclosure-Agreement-Template.docx | simple_placeholders=9 | loop_placeholders=1"}
+{"asctime": "2026-02-23 14:34:00,443", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Placeholders extracted successfully for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:34:00,447", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Placeholders retrieved for 'Non-Disclosure Agreement Template': simple=9, loops=1"}
+{"asctime": "2026-02-23 14:34:00,453", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/placeholders - 200 (0.326s)"}
+{"asctime": "2026-02-23 14:37:13,482", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Save contract data for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 14:37:13,484", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Saving contract data for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 14:37:13,488", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Contract data saved: D:\\OneDrive - Lowcode Minds Technology Pvt Ltd\\Desktop\\automate_contract_creation\\legal-document-automation-process\\backend\\output\\Non-Disclosure-Agreement-Template_20260223_143713.json | fields_count=11"}
+{"asctime": "2026-02-23 14:37:13,491", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Contract data saved successfully | template=Non-Disclosure Agreement Template | path=D:\\OneDrive - Lowcode Minds Technology Pvt Ltd\\Desktop\\automate_contract_creation\\legal-document-automation-process\\backend\\output\\Non-Disclosure-Agreement-Template_20260223_143713.json | fields=11"}
+{"asctime": "2026-02-23 14:37:13,497", "levelname": "INFO", "name": "app.main", "message": "HTTP POST /api/contracts/data - 200 (0.024s)"}
+{"asctime": "2026-02-23 14:38:00,267", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 14:38:00,269", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 14:38:00,283", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 14:38:00,292", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 14:38:00,300", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 14:38:00,319", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 14:38:00,367", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 14:38:37,576", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:38:37,579", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:38:37,648", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:38:37,652", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.194s)"}
+{"asctime": "2026-02-23 14:38:41,950", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:38:41,953", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "User Arun Kumar (ID: 1) requested contracts list"}
+{"asctime": "2026-02-23 14:38:41,983", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "Retrieved 5 contracts from database"}
+{"asctime": "2026-02-23 14:38:41,989", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 200 (0.082s)"}
+{"asctime": "2026-02-23 14:38:44,460", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:38:44,463", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:38:44,496", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:38:44,501", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.077s)"}
+{"asctime": "2026-02-23 14:38:46,540", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:38:46,544", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "User Arun Kumar (ID: 1) requested contracts list"}
+{"asctime": "2026-02-23 14:38:46,605", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "Retrieved 5 contracts from database"}
+{"asctime": "2026-02-23 14:38:46,609", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 200 (0.1s)"}
+{"asctime": "2026-02-23 14:38:56,674", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:38:56,679", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:38:56,721", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:38:56,727", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.088s)"}
+{"asctime": "2026-02-23 14:38:56,860", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:38:56,863", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:38:56,892", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:38:56,897", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.075s)"}
+{"asctime": "2026-02-23 14:39:00,039", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:39:00,042", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:39:00,114", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:39:00,120", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.118s)"}
+{"asctime": "2026-02-23 14:52:24,070", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 14:52:24,073", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 14:52:24,081", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 14:52:24,085", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 14:52:24,091", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 14:52:24,103", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 14:52:24,107", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 14:52:33,503", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 14:52:33,506", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 14:52:33,521", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 14:52:33,527", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 14:52:33,532", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 14:52:33,544", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 14:52:33,551", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 14:53:22,184", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 14:53:22,187", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 14:53:22,201", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 14:53:22,208", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 14:53:22,214", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 14:53:22,230", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 14:53:22,237", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 14:53:22,290", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 14:53:22,342", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Non-Disclosure Agreement Template' (2231 characters)"}
+{"asctime": "2026-02-23 14:53:22,346", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/content - 200 (0.072s)"}
+{"asctime": "2026-02-23 14:53:22,446", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 14:53:22,484", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Non-Disclosure Agreement Template' (2231 characters)"}
+{"asctime": "2026-02-23 14:53:22,490", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/content - 200 (0.047s)"}
+{"asctime": "2026-02-23 14:55:08,515", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 14:55:08,518", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 14:55:08,533", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 14:55:08,562", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 14:55:08,566", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 14:55:08,578", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 14:55:08,581", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 14:55:08,606", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 14:55:08,648", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Non-Disclosure Agreement Template' as HTML"}
+{"asctime": "2026-02-23 14:55:08,651", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/content - 200 (0.05s)"}
+{"asctime": "2026-02-23 14:55:31,304", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 14:55:31,306", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 14:55:31,315", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 14:55:31,320", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 14:55:31,326", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 14:55:31,335", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 14:55:31,339", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 14:55:31,382", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 14:55:31,451", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Non-Disclosure Agreement Template' as HTML"}
+{"asctime": "2026-02-23 14:55:31,457", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/content - 200 (0.088s)"}
+{"asctime": "2026-02-23 14:55:38,913", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Master Service Agreement Template'"}
+{"asctime": "2026-02-23 14:55:39,421", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Master Service Agreement Template' as HTML"}
+{"asctime": "2026-02-23 14:55:39,427", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Master Service Agreement Template/content - 200 (0.515s)"}
+{"asctime": "2026-02-23 14:55:39,582", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Master Service Agreement Template'"}
+{"asctime": "2026-02-23 14:55:39,937", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Master Service Agreement Template' as HTML"}
+{"asctime": "2026-02-23 14:55:39,941", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Master Service Agreement Template/content - 200 (0.36s)"}
+{"asctime": "2026-02-23 14:56:07,506", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:56:07,511", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:56:07,554", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:56:07,562", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.187s)"}
+{"asctime": "2026-02-23 14:56:07,663", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 14:56:07,668", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 14:56:07,707", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 14:56:07,714", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.096s)"}
+{"asctime": "2026-02-23 14:59:11,217", "levelname": "INFO", "name": "app.main", "message": "Initializing Legal Contract Management API"}
+{"asctime": "2026-02-23 14:59:11,220", "levelname": "INFO", "name": "app.main", "message": "CORS middleware configured with origins: ['http://localhost:8000', 'http://127.0.0.1:8000', 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174']"}
+{"asctime": "2026-02-23 14:59:11,231", "levelname": "INFO", "name": "app.main", "message": "Login router included"}
+{"asctime": "2026-02-23 14:59:11,238", "levelname": "INFO", "name": "app.main", "message": "Contracts router included"}
+{"asctime": "2026-02-23 14:59:11,244", "levelname": "INFO", "name": "app.main", "message": "Templates router included"}
+{"asctime": "2026-02-23 14:59:11,256", "levelname": "INFO", "name": "app.main", "message": "Generator (dynamic contract) router included"}
+{"asctime": "2026-02-23 14:59:11,268", "levelname": "INFO", "name": "app.main", "message": "Clause router included"}
+{"asctime": "2026-02-23 15:08:15,998", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 15:08:16,002", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 15:08:16,061", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 15:08:16,068", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.176s)"}
+{"asctime": "2026-02-23 15:10:28,058", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 15:10:28,125", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Non-Disclosure Agreement Template' as HTML"}
+{"asctime": "2026-02-23 15:10:28,130", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/content - 200 (0.084s)"}
+{"asctime": "2026-02-23 15:10:28,187", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 15:10:28,263", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Non-Disclosure Agreement Template' as HTML"}
+{"asctime": "2026-02-23 15:10:28,270", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/content - 200 (0.084s)"}
+{"asctime": "2026-02-23 15:13:21,605", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 15:13:21,611", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 15:13:21,644", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 15:13:21,652", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.089s)"}
+{"asctime": "2026-02-23 15:13:21,779", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 15:13:21,783", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 15:13:21,822", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 15:13:21,830", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.088s)"}
+{"asctime": "2026-02-23 15:14:24,241", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Master Service Agreement Template'"}
+{"asctime": "2026-02-23 15:14:24,244", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Master Service Agreement Template"}
+{"asctime": "2026-02-23 15:14:24,435", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Template parsed: Master-Service-Agreement-Template.docx | simple_placeholders=33 | loop_placeholders=0"}
+{"asctime": "2026-02-23 15:14:24,440", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Placeholders extracted successfully for template: Master Service Agreement Template"}
+{"asctime": "2026-02-23 15:14:24,442", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Placeholders retrieved for 'Master Service Agreement Template': simple=33, loops=0"}
+{"asctime": "2026-02-23 15:14:24,446", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Master Service Agreement Template/placeholders - 200 (0.21s)"}
+{"asctime": "2026-02-23 15:17:35,848", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 15:17:35,855", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "User Arun Kumar (ID: 1) requested contracts list"}
+{"asctime": "2026-02-23 15:17:35,889", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "Retrieved 5 contracts from database"}
+{"asctime": "2026-02-23 15:17:35,899", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 200 (0.093s)"}
+{"asctime": "2026-02-23 15:18:04,281", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 15:18:04,286", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 15:18:04,330", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 15:18:04,338", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.091s)"}
+{"asctime": "2026-02-23 15:18:04,431", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 15:18:04,438", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 15:18:04,471", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 15:18:04,479", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.079s)"}
+{"asctime": "2026-02-23 16:09:36,550", "levelname": "ERROR", "name": "app.auth", "message": "Failed to decode token: Signature has expired."}
+{"asctime": "2026-02-23 16:09:36,554", "levelname": "ERROR", "name": "app.deps", "message": "Token validation failed: Invalid token"}
+{"asctime": "2026-02-23 16:09:36,558", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 401 (0.019s)"}
+{"asctime": "2026-02-23 16:10:34,689", "levelname": "INFO", "name": "app.routers.login_router", "message": "Login attempt for email: arun.kumar@company.com"}
+{"asctime": "2026-02-23 16:10:34,712", "levelname": "INFO", "name": "app.auth", "message": "Access token created successfully for user: arun.kumar@company.com"}
+{"asctime": "2026-02-23 16:10:34,713", "levelname": "INFO", "name": "app.routers.login_router", "message": "User logged in successfully: Arun Kumar (ID: 1)"}
+{"asctime": "2026-02-23 16:10:34,716", "levelname": "INFO", "name": "app.main", "message": "HTTP POST /api/login - 200 (0.037s)"}
+{"asctime": "2026-02-23 16:10:34,767", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 16:10:34,769", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 16:10:34,779", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 16:10:34,782", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.024s)"}
+{"asctime": "2026-02-23 16:10:34,825", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 16:10:34,826", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 16:10:34,839", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 16:10:34,841", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.026s)"}
+{"asctime": "2026-02-23 16:10:37,097", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 16:10:37,099", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "User Arun Kumar (ID: 1) requested contracts list"}
+{"asctime": "2026-02-23 16:10:37,113", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "Retrieved 5 contracts from database"}
+{"asctime": "2026-02-23 16:10:37,115", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 200 (0.032s)"}
+{"asctime": "2026-02-23 16:42:02,104", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 16:42:02,107", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 16:42:02,117", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 16:42:02,120", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.032s)"}
+{"asctime": "2026-02-23 16:42:02,152", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 16:42:02,155", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 16:42:02,171", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 16:42:02,173", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.031s)"}
+{"asctime": "2026-02-23 16:42:06,227", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 16:42:06,230", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 16:42:06,256", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Template parsed: Non-Disclosure-Agreement-Template.docx | simple_placeholders=9 | loop_placeholders=1"}
+{"asctime": "2026-02-23 16:42:06,257", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Placeholders extracted successfully for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 16:42:06,259", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Placeholders retrieved for 'Non-Disclosure Agreement Template': simple=9, loops=1"}
+{"asctime": "2026-02-23 16:42:06,261", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/placeholders - 200 (0.035s)"}
+{"asctime": "2026-02-23 16:56:07,012", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 16:56:07,014", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "User Arun Kumar (ID: 1) requested contracts list"}
+{"asctime": "2026-02-23 16:56:07,029", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "Retrieved 5 contracts from database"}
+{"asctime": "2026-02-23 16:56:07,033", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 200 (0.038s)"}
+{"asctime": "2026-02-23 16:56:13,461", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 16:56:13,463", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 16:56:13,477", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 16:56:13,479", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.08s)"}
+{"asctime": "2026-02-23 16:56:17,446", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Statement Of Work Template'"}
+{"asctime": "2026-02-23 16:56:17,620", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Statement Of Work Template' as HTML"}
+{"asctime": "2026-02-23 16:56:17,624", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Statement Of Work Template/content - 200 (0.219s)"}
+{"asctime": "2026-02-23 16:56:17,661", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Statement Of Work Template'"}
+{"asctime": "2026-02-23 16:56:17,754", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Statement Of Work Template' as HTML"}
+{"asctime": "2026-02-23 16:56:17,757", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Statement Of Work Template/content - 200 (0.096s)"}
+{"asctime": "2026-02-23 16:56:31,675", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 16:56:31,679", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 16:56:31,696", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 16:56:31,698", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.077s)"}
+{"asctime": "2026-02-23 16:56:31,730", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 16:56:31,732", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 16:56:31,742", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 16:56:31,743", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.022s)"}
+{"asctime": "2026-02-23 17:12:00,932", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 17:12:00,940", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 17:12:01,012", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Template parsed: Non-Disclosure-Agreement-Template.docx | simple_placeholders=9 | loop_placeholders=1"}
+{"asctime": "2026-02-23 17:12:01,015", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Placeholders extracted successfully for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 17:12:01,017", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Placeholders retrieved for 'Non-Disclosure Agreement Template': simple=9, loops=1"}
+{"asctime": "2026-02-23 17:12:01,028", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/placeholders - 200 (0.097s)"}
+{"asctime": "2026-02-23 17:12:13,912", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Statement Of Work Template'"}
+{"asctime": "2026-02-23 17:12:13,914", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Statement Of Work Template"}
+{"asctime": "2026-02-23 17:12:14,055", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Template parsed: Statement-Of-Work-Template.docx | simple_placeholders=39 | loop_placeholders=8"}
+{"asctime": "2026-02-23 17:12:14,138", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Placeholders extracted successfully for template: Statement Of Work Template"}
+{"asctime": "2026-02-23 17:12:14,147", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Placeholders retrieved for 'Statement Of Work Template': simple=39, loops=8"}
+{"asctime": "2026-02-23 17:12:14,167", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Statement Of Work Template/placeholders - 200 (0.259s)"}
+{"asctime": "2026-02-23 17:12:40,995", "levelname": "ERROR", "name": "app.auth", "message": "Failed to decode token: Signature has expired."}
+{"asctime": "2026-02-23 17:12:41,001", "levelname": "ERROR", "name": "app.deps", "message": "Token validation failed: Invalid token"}
+{"asctime": "2026-02-23 17:12:41,022", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 401 (0.038s)"}
+{"asctime": "2026-02-23 17:13:05,635", "levelname": "INFO", "name": "app.routers.login_router", "message": "Login attempt for email: arun.kumar@company.com"}
+{"asctime": "2026-02-23 17:13:05,678", "levelname": "INFO", "name": "app.auth", "message": "Access token created successfully for user: arun.kumar@company.com"}
+{"asctime": "2026-02-23 17:13:05,690", "levelname": "INFO", "name": "app.routers.login_router", "message": "User logged in successfully: Arun Kumar (ID: 1)"}
+{"asctime": "2026-02-23 17:13:05,709", "levelname": "INFO", "name": "app.main", "message": "HTTP POST /api/login - 200 (0.097s)"}
+{"asctime": "2026-02-23 17:13:05,990", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:13:06,058", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:13:06,152", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:13:06,165", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.222s)"}
+{"asctime": "2026-02-23 17:13:06,303", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:13:06,328", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:13:06,401", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:13:06,410", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.148s)"}
+{"asctime": "2026-02-23 17:13:07,877", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:13:07,944", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:13:08,003", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:13:08,014", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.201s)"}
+{"asctime": "2026-02-23 17:13:18,143", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 17:13:18,342", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Non-Disclosure Agreement Template' as HTML"}
+{"asctime": "2026-02-23 17:13:18,355", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/content - 200 (0.213s)"}
+{"asctime": "2026-02-23 17:13:18,525", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 17:13:18,701", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Non-Disclosure Agreement Template' as HTML"}
+{"asctime": "2026-02-23 17:13:18,748", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/content - 200 (0.222s)"}
+{"asctime": "2026-02-23 17:13:28,688", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:13:28,697", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "User Arun Kumar (ID: 1) requested contracts list"}
+{"asctime": "2026-02-23 17:13:28,735", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "Retrieved 5 contracts from database"}
+{"asctime": "2026-02-23 17:13:28,743", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 200 (0.091s)"}
+{"asctime": "2026-02-23 17:14:23,050", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:14:23,078", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:14:23,151", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:14:23,186", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.2s)"}
+{"asctime": "2026-02-23 17:14:23,441", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:14:23,446", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:14:23,492", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:14:23,504", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.157s)"}
+{"asctime": "2026-02-23 17:14:24,911", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:14:24,922", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "User Arun Kumar (ID: 1) requested contracts list"}
+{"asctime": "2026-02-23 17:14:24,965", "levelname": "INFO", "name": "app.routers.contracts_router", "message": "Retrieved 5 contracts from database"}
+{"asctime": "2026-02-23 17:14:24,974", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/contracts - 200 (0.098s)"}
+{"asctime": "2026-02-23 17:14:56,491", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:14:56,499", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:14:56,526", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:14:56,538", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.084s)"}
+{"asctime": "2026-02-23 17:15:05,284", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Termination Agreement Template'"}
+{"asctime": "2026-02-23 17:15:05,743", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Termination Agreement Template' as HTML"}
+{"asctime": "2026-02-23 17:15:05,758", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Termination Agreement Template/content - 200 (0.475s)"}
+{"asctime": "2026-02-23 17:15:05,848", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get content for template 'Termination Agreement Template'"}
+{"asctime": "2026-02-23 17:15:05,955", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Template content retrieved for 'Termination Agreement Template' as HTML"}
+{"asctime": "2026-02-23 17:15:05,965", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Termination Agreement Template/content - 200 (0.118s)"}
+{"asctime": "2026-02-23 17:15:34,101", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:15:34,104", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:15:34,188", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:15:34,201", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.137s)"}
+{"asctime": "2026-02-23 17:15:34,289", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:15:34,294", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:15:34,329", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:15:34,333", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.086s)"}
+{"asctime": "2026-02-23 17:15:40,433", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Termination Agreement Template'"}
+{"asctime": "2026-02-23 17:15:40,436", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Termination Agreement Template"}
+{"asctime": "2026-02-23 17:15:40,498", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Template parsed: Termination-Agreement-Template.docx | simple_placeholders=9 | loop_placeholders=0"}
+{"asctime": "2026-02-23 17:15:40,500", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Placeholders extracted successfully for template: Termination Agreement Template"}
+{"asctime": "2026-02-23 17:15:40,515", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Placeholders retrieved for 'Termination Agreement Template': simple=9, loops=0"}
+{"asctime": "2026-02-23 17:15:40,535", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Termination Agreement Template/placeholders - 200 (0.102s)"}
+{"asctime": "2026-02-23 17:16:01,673", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:16:01,679", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:16:01,707", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:16:01,715", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.073s)"}
+{"asctime": "2026-02-23 17:16:11,322", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:16:11,330", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:16:11,363", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:16:11,369", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.089s)"}
+{"asctime": "2026-02-23 17:16:11,457", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:16:11,463", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:16:11,526", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:16:11,550", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.131s)"}
+{"asctime": "2026-02-23 17:16:17,681", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:16:17,684", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:16:17,712", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:16:17,717", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.072s)"}
+{"asctime": "2026-02-23 17:16:21,160", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:16:21,167", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:16:21,199", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:16:21,204", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.087s)"}
+{"asctime": "2026-02-23 17:16:21,308", "levelname": "INFO", "name": "app.deps", "message": "User authenticated successfully: arun.kumar@company.com (ID: 1)"}
+{"asctime": "2026-02-23 17:16:21,312", "levelname": "INFO", "name": "app.routers.templates_router", "message": "User Arun Kumar (ID: 1) requested templates list"}
+{"asctime": "2026-02-23 17:16:21,340", "levelname": "INFO", "name": "app.routers.templates_router", "message": "Retrieved 5 templates from database"}
+{"asctime": "2026-02-23 17:16:21,349", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates - 200 (0.084s)"}
+{"asctime": "2026-02-23 17:16:26,443", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Request: Get placeholders for template 'Non-Disclosure Agreement Template'"}
+{"asctime": "2026-02-23 17:16:26,448", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Fetching placeholders for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 17:16:26,516", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Template parsed: Non-Disclosure-Agreement-Template.docx | simple_placeholders=9 | loop_placeholders=1"}
+{"asctime": "2026-02-23 17:16:26,519", "levelname": "INFO", "name": "app.collect_inputs.dynamic_questions", "message": "Placeholders extracted successfully for template: Non-Disclosure Agreement Template"}
+{"asctime": "2026-02-23 17:16:26,526", "levelname": "INFO", "name": "app.routers.generator_router", "message": "Placeholders retrieved for 'Non-Disclosure Agreement Template': simple=9, loops=1"}
+{"asctime": "2026-02-23 17:16:26,533", "levelname": "INFO", "name": "app.main", "message": "HTTP GET /api/templates/Non-Disclosure Agreement Template/placeholders - 200 (0.092s)"}
+{"asctime": "2026-02-23 17:18:55,481", "levelname": "INFO", "name": "app.services.rag_service", "message": "rag_request_started", "query": "NDA"}
+{"asctime": "2026-02-23 17:18:55,490", "levelname": "INFO", "name": "app.services.rag_service", "message": "embedding_started"}
+{"asctime": "2026-02-23 17:18:55,800", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: POST http://127.0.0.1:11434/api/embeddings \"HTTP/1.1 404 Not Found\""}
+{"asctime": "2026-02-23 17:18:55,821", "levelname": "ERROR", "name": "app.services.rag_service", "message": "rag_failed", "error": "model \"nomic-embed-text\" not found, try pulling it first (status code: 404)"}

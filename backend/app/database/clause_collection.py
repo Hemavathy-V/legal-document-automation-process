@@ -1,5 +1,8 @@
+"""
+Clause collection management in ChromaDB.
+"""
 from app.database.chroma_client import get_chroma_client
-from app.config import CHROMA_COLLECTION_NAME
+from backend.app.core.config import CHROMA_COLLECTION_NAME
 
 def get_clause_collection():
     client = get_chroma_client()

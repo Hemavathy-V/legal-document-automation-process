@@ -21,7 +21,7 @@ function TemplatesPage({ token }) {
   return (
     <section className="templates-page">
       <h2>Contract Templates</h2>
-      <TemplatesTable templates={templates} />
+      <TemplatesTable templates={templates} token={token} />
     </section>
   );
 }

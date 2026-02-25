@@ -19,8 +19,8 @@ CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(30) NOT NULL,
     role_id INT NOT NULL,
-    email VARCHAR(30) UNIQUE NOT NULL,
-    password VARCHAR(35) NULL,
+    email VARCHAR(40) UNIQUE NOT NULL,
+    password VARCHAR(255) NULL,   -- bcrypt hash (60 chars); 255 for future-proofing
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

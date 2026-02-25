@@ -1,3 +1,6 @@
+"""
+Ollama LLM integration service.
+"""
 import requests
 import time
 
