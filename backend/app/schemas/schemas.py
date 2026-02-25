@@ -1,9 +1,9 @@
 """
 Shared request/response schemas used across login, contracts, and templates.
 """
-from typing import List
+from typing import Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr, field_validator
 
 
 # --- Login / auth ---
@@ -11,12 +11,22 @@ class LoginRequest(BaseModel):
     email: str
     password: str
 
+    @field_validator("email", mode="before")
+    @classmethod
+    def lowercase_email(cls, v: str) -> str:
+        return v.strip().lower()
+
 
 class RegisterRequest(BaseModel):
     user_name: str
-    email: str
+    email: EmailStr
     password: str
     role: str
+
+    @field_validator("email", mode="before")
+    @classmethod
+    def lowercase_email(cls, v: str) -> str:
+        return v.strip().lower()
 
 
 class UserResponse(BaseModel):
@@ -24,6 +34,19 @@ class UserResponse(BaseModel):
     user_name: str
     email: str
     role: str
+
+
+class UserUpdateRequest(BaseModel):
+    """Admin update user: name, email, role; password optional (omit to keep current)."""
+    user_name: str
+    email: EmailStr
+    password: Optional[str] = None
+    role: str
+
+    @field_validator("email", mode="before")
+    @classmethod
+    def lowercase_email(cls, v: str) -> str:
+        return v.strip().lower()
 
 
 class TokenResponse(BaseModel):

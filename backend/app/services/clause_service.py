@@ -1,4 +1,4 @@
-from app.database.clause_collection import get_clause_collection
+from backend.app.database.clause_collection import get_clause_collection
 
 collection = get_clause_collection()
 

@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from app.services.rag_service import generate_legal_document
+from backend.app.services.rag_service import generate_legal_document
 
 router = APIRouter()
 

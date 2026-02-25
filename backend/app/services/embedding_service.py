@@ -2,8 +2,7 @@ import ollama
 
 MODEL = "nomic-embed-text"
 
-def generate_embedding(text: str):
-
+def get_embedding(text: str):
     if not text.strip():
         raise ValueError("Empty text")
 

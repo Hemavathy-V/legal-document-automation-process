@@ -1,7 +1,7 @@
 import sys
 import pandas as pd
-from app.services.embedding_service import generate_embedding
-from app.services.clause_service import store_clauses
+from backend.app.services.embedding_service import get_embedding
+from backend.app.services.clause_service import store_clauses
 
 
 file_path = sys.argv[1]
@@ -13,7 +13,7 @@ ids, docs, embeds, metas = [], [], [], []
 for index, row in df.iterrows():
     text = row["clause_text"] 
 
-    emb = generate_embedding(text)
+    emb = get_embedding(text)
         
     ids.append(str(index))
     docs.append(text)

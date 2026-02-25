@@ -12,10 +12,10 @@ uvicorn
 email-validator
 pandas
 openpyxl
-requests
 chromadb
 ollama
 python-jose[cryptography]
 passlib[bcrypt]
 pydantic
 
+bcrypt

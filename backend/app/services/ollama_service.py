@@ -1,5 +1,4 @@
 import requests
-import time
 
 URL = "http://localhost:11434/api/generate"
 MODEL = "llama3"
