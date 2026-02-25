@@ -18,7 +18,8 @@ export async function fetchTemplates(token) {
 }
 
 export async function fetchPlaceholders(templateName, token) {
-  const response = await fetch(`${API_BASE_URL}/api/templates/${templateName}/placeholders`, {
+  const encodedTemplateName = encodeURIComponent(templateName);
+  const response = await fetch(`${API_BASE_URL}/api/templates/${encodedTemplateName}/placeholders`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   return handleResponse(response);

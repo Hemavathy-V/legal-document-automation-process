@@ -1,1 +1,0 @@
-# Collect inputs sub-package

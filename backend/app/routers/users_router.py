@@ -13,8 +13,8 @@ from mysql.connector.errors import IntegrityError
 from backend.app.auth import get_password_hash
 from backend.app.deps import get_current_user
 from backend.app.schemas import UserResponse, UserUpdateRequest
-from backend.database.db_connection import get_connection
-from backend.logger import get_logger
+from backend.app.database.db_connection import get_connection
+from backend.app.core.logger import get_logger
 
 logger = get_logger(__name__)
 
