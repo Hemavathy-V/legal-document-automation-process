@@ -1,0 +1,24 @@
+# Python environments
+venv/
+.venv/
+.vscode/
+
+# Environment secrets
+.env
+__pycache__/
+~$clause_lib.xlsx
+chroma_DB/
+
+# Compiled Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Log files
+logs/
+
+# Template output
+output/
+
+# Node dependencies
+node_modules/
