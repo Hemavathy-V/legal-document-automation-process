@@ -11,7 +11,7 @@ import time
 from backend.app.routers import contracts_router, login_router, templates_router, users_router, generator_router
 from backend.app.core.logger import get_logger
 
-from backend.app.api.clause_routes import router as clause_router
+from backend.app.routers.clause_routes import router as clause_router
 from backend.app.core.log_config import setup_logging
 
 # Setup logging

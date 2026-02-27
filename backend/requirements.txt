@@ -7,15 +7,10 @@ openpyxl
 requests
 chromadb
 python-dotenv
-fastapi
-uvicorn
 email-validator
-pandas
-openpyxl
-chromadb
 ollama
 python-jose[cryptography]
 passlib[bcrypt]
 pydantic
-
+pythonjsonlogger
 bcrypt
