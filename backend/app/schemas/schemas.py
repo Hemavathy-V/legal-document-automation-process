@@ -82,6 +82,7 @@ class TemplatePlaceholdersResponse(BaseModel):
 
 class ContractDataRequest(BaseModel):
     """Request payload with user-provided contract data"""
+    contract_id: int
     template_name: str
     data: Dict[str, Any]
 

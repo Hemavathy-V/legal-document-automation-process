@@ -17,5 +17,5 @@ ollama
 python-jose[cryptography]
 passlib[bcrypt]
 pydantic
-
 bcrypt
+google-generativeai

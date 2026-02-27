@@ -175,7 +175,7 @@ class ContractProcessor:
             f"fields_count={self._count_fields(data)}"
         )
         return filepath
-    
+
     @staticmethod
     def _count_fields(data: Dict) -> int:
         """Count total number of fields in collected data"""

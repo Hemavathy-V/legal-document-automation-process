@@ -12,7 +12,9 @@ from typing import Any, Dict
 from fastapi import APIRouter, HTTPException, status
 
 from backend.app.scripts.dynamic_questions import ContractProcessor
+from backend.app.scripts.contract_generation_processor import ContractGenerationProcessor
 from backend.app.core.logger import get_logger
+from backend.app.services.contract_generation_service import ContractGenerationService
 from backend.app.schemas.schemas import (
     ContractDataRequest,
     ContractDataResponse,
@@ -31,7 +33,16 @@ TEMPLATES_DIR = PROJECT_ROOT / "sample_templates"
 OUTPUT_DIR = PROJECT_ROOT / "backend" / "output"
 
 processor = ContractProcessor(templates_dir=TEMPLATES_DIR, output_dir=OUTPUT_DIR)
+generation_processor = ContractGenerationProcessor(templates_dir=TEMPLATES_DIR, output_dir=OUTPUT_DIR)
+generation_service: ContractGenerationService | None = None
 logger.info(f"ContractProcessor initialized for generator_router | templates={TEMPLATES_DIR} | output={OUTPUT_DIR}")
+
+
+def _get_generation_service() -> ContractGenerationService:
+    global generation_service
+    if generation_service is None:
+        generation_service = ContractGenerationService(output_dir=OUTPUT_DIR)
+    return generation_service
 
 
 @router.get("/templates/names", response_model=TemplateNamesResponse)
@@ -181,6 +192,12 @@ def save_contract_data(request: ContractDataRequest):
             request.template_name,
             request.data
         )
+        generation_processor.save_json_metadata(
+            contract_id=request.contract_id,
+            template_name=request.template_name,
+            output_path=output_path,
+            data=request.data,
+        )
         fields_count = processor._count_fields(request.data)
         logger.info(
             f"Contract data saved successfully | "
@@ -205,3 +222,51 @@ def save_contract_data(request: ContractDataRequest):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Unable to save contract data: {str(e)}"
         ) from e
+
+
+@router.post("/contracts/generate/{contract_id}")
+def generate_contract(contract_id: int):
+    """
+    Generate final contract document using Gemini.
+    """
+    try:
+        logger.info(f"Request: Generate contract for ID {contract_id}")
+
+        service = _get_generation_service()
+
+        filename, contract_type = generation_processor.get_filename_by_id(contract_id)
+        json_path = OUTPUT_DIR / filename
+
+        user_data = service.load_json(json_path)
+
+        template_path = generation_processor.get_template_path_by_contract_type(contract_type)
+        if not template_path:
+            raise FileNotFoundError(f"Template not found for contract type '{contract_type}'")
+
+        template_text = generation_processor.extract_template_text(template_path)
+        regional_law_text = generation_processor.get_regional_law_text(contract_type)
+        kb_clauses_text = generation_processor.get_kb_clauses(contract_type)
+
+        prompt = service.build_prompt(
+            contract_type,
+            template_text,
+            user_data,
+            regional_law_text,
+            kb_clauses_text,
+        )
+
+        contract_text = service.generate_contract(prompt)
+        output_path = service.save_generated_contract(contract_id, contract_text)
+
+        generation_processor.update_contract_status(contract_id, "generated")
+
+        return {
+            "message": "Contract generated successfully",
+            "contract_id": contract_id,
+            "file_path": str(output_path),
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error generating contract: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e)) from e
