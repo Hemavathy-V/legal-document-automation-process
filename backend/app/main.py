@@ -14,6 +14,10 @@ from backend.app.core.logger import get_logger
 from backend.app.routers.clause_routes import router as clause_router
 from backend.app.core.log_config import setup_logging
 
+from backend.app.database.sql_database import engine
+from backend.app.models.db_models import Base
+from backend.app.routers.contracts_router import router as contracts
+
 # Setup logging
 setup_logging()
 logger = get_logger("api")
@@ -87,3 +91,10 @@ def home():
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+Base.metadata.create_all(bind=engine)
+@app.get("/")
+def read_root():
+    return {"message": "Backend is running successfully 🚀"}
+
+app.include_router(contracts_router.router)

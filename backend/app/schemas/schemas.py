@@ -2,8 +2,9 @@
 Shared request/response schemas used across login, contracts, and templates.
 """
 from typing import Optional, List, Dict, Any
-
+from backend.app.models.db_models import UserRole, ActionType
 from pydantic import BaseModel, EmailStr, field_validator
+from datetime import datetime
 
 
 # --- Login / auth ---
@@ -97,3 +98,26 @@ class ContractDataResponse(BaseModel):
 class TemplateNamesResponse(BaseModel):
     """Response with available template names from DOCX files"""
     templates: List[str]
+
+class ContractCreate(BaseModel):
+    title: str
+    content: str
+    created_by: int
+
+
+class ContractEdit(BaseModel):
+    new_content: str
+    user_id: int
+    user_role: UserRole
+    is_ai: bool
+
+
+class AuditLogResponse(BaseModel):
+    user_id: int
+    user_role: UserRole
+    action_type: ActionType
+    change_summary: Optional[str]
+    created_at: datetime
+
+    class Config:
+        orm_mode = True
