@@ -7,6 +7,7 @@ from docx import Document
 from backend.app.core.gemini_client import get_gemini_model
 from backend.app.core.logger import get_logger
 from backend.app.prompts.legal_contract_prompt import CONTRACT_PROMPT
+from backend.app.services.ollama_service import generate_response as generate_ollama_response
 
 
 logger = get_logger(__name__)
@@ -40,7 +41,7 @@ class ContractGenerationService:
 
     def _validate_generated_contract(self, generated_text: str) -> str:
         if not generated_text or not generated_text.strip():
-            raise ValueError("Gemini returned empty response")
+            raise ValueError("Model returned empty response")
 
         cleaned_text = generated_text.strip()
         if "{{" in cleaned_text or "}}" in cleaned_text:
@@ -50,6 +51,32 @@ class ContractGenerationService:
             raise ValueError("Generated contract response is too short to be valid")
 
         return cleaned_text
+
+    def _is_quota_or_rate_limit_error(self, error: Exception) -> bool:
+        message = str(error).lower()
+        return (
+            "429" in message
+            or "quota" in message
+            or "rate limit" in message
+            or "retry in" in message
+        )
+
+    def _generate_with_ollama(self, prompt: str) -> str:
+        logger.info("Falling back to Ollama for contract generation")
+        response_text = generate_ollama_response(prompt)
+
+        if not response_text:
+            raise RuntimeError("Ollama returned empty response")
+
+        lowered = response_text.lower()
+        if (
+            "ollama server is not running" in lowered
+            or "model timeout" in lowered
+            or lowered.startswith("unexpected error:")
+        ):
+            raise RuntimeError(f"Ollama generation failed: {response_text}")
+
+        return self._validate_generated_contract(response_text)
 
     def generate_contract(self, prompt: str) -> str:
         logger.debug(f"Prompt length: {len(prompt)}")
@@ -76,7 +103,22 @@ class ContractGenerationService:
                 last_error = exc
                 logger.warning(f"Gemini generation attempt failed: {str(exc)}")
 
-        raise RuntimeError(f"Gemini generation failed after retries: {last_error}")
+                if self._is_quota_or_rate_limit_error(exc):
+                    logger.warning("Gemini quota/rate limit detected; switching to Ollama fallback")
+                    try:
+                        return self._generate_with_ollama(prompt)
+                    except Exception as ollama_exc:
+                        raise RuntimeError(
+                            f"Gemini quota exceeded and Ollama fallback failed: {ollama_exc}"
+                        ) from ollama_exc
+
+        try:
+            return self._generate_with_ollama(prompt)
+        except Exception as ollama_exc:
+            raise RuntimeError(
+                f"Gemini generation failed after retries: {last_error}; "
+                f"Ollama fallback failed: {ollama_exc}"
+            ) from ollama_exc
 
     def save_generated_contract(self, contract_id: int, text: str) -> Path:
         filename = f"generated_contract_{contract_id}.docx"
